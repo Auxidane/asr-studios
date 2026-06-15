@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title>ASR Studio – Best Photography in Delhi NCR | Birthday • Ring Ceremony • Wedding</title>
+  <meta name="description" content="ASR Studio – Professional photography for Birthday, Ring Ceremony, Pre-Wedding, Wedding & Films in Delhi NCR. Book your session today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a96e; --gold-light: #e8d5a3; --gold-dark: #a07840;
+      --black: #080808; --dark: #0f0f0f; --dark2: #161616; --dark3: #1e1e1e;
+      --white: #f8f4ef; --white2: #e8e0d5; --gray: #888;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: var(--font-body); font-weight: 300; overflow-x: hidden; cursor: none; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    ul { list-style: none; }
+
+    .cursor { position: fixed; top: 0; left: 0; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background 0.2s; }
+    .cursor-follower { position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1px solid rgba(201,169,110,0.5); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: all 0.12s ease-out; }
+
+    #loader { position: fixed; inset: 0; background: var(--black); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, visibility 0.8s ease; }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-logo { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; color: var(--gold); letter-spacing: 0.3em; animation: loaderPulse 1.5s ease-in-out infinite; }
+    .loader-subtitle { font-family: var(--font-body); font-size: 0.65rem; letter-spacing: 0.5em; color: var(--gray); margin-top: 0.5rem; text-transform: uppercase; }
+    .loader-bar { width: 160px; height: 1px; background: var(--dark3); margin-top: 2.5rem; overflow: hidden; position: relative; }
+    .loader-bar::after { content: ''; position: absolute; left: -100%; top: 0; width: 100%; height: 100%; background: var(--gold); animation: loaderSlide 1.8s ease-in-out forwards; }
+    @keyframes loaderPulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+    @keyframes loaderSlide { to { left: 100%; } }
+
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 4rem; height: 80px; display: flex; align-items: center; justify-content: space-between; background: rgba(8,8,8,0); backdrop-filter: blur(0px); transition: background 0.5s ease, backdrop-filter 0.5s ease, height 0.3s ease; border-bottom: 1px solid transparent; }
+    header.scrolled { background: rgba(8,8,8,0.92); backdrop-filter: blur(20px); border-color: rgba(201,169,110,0.15); height: 68px; }
+    .logo { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; line-height: 1; }
+    .logo span { font-style: italic; color: var(--white); }
+    nav ul { display: flex; gap: 0.2rem; align-items: center; }
+    nav ul li a { font-family: var(--font-body); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white2); padding: 0.5rem 0.9rem; position: relative; transition: color var(--transition); }
+    nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 50%; right: 50%; height: 1px; background: var(--gold); transition: left var(--transition), right var(--transition); }
+    nav ul li a:hover { color: var(--gold); }
+    nav ul li a:hover::after { left: 0.9rem; right: 0.9rem; }
+    nav ul li a.active { color: var(--gold); }
+    .nav-cta { font-family: var(--font-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--black) !important; background: var(--gold); padding: 0.65rem 1.5rem !important; transition: background var(--transition) !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001; }
+    .hamburger span { display: block; width: 28px; height: 1.5px; background: var(--white); transition: var(--transition); }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(8,8,8,0.98); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; backdrop-filter: blur(20px); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; letter-spacing: 0.15em; color: var(--white2); transition: color var(--transition); }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════
+       HERO SECTION — Full-bleed image slideshow
+    ═══════════════════════════════════════════ */
+    .hero { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
+    .hero-slides { position: relative; height: 100%; }
+    .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s ease; }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.08); transition: transform 9s ease;
+      filter: brightness(0.42);
+    }
+    .hero-slide.active img { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(8,8,8,0.72) 0%,
+        rgba(8,8,8,0.25) 55%,
+        rgba(8,8,8,0.05) 100%
+      );
+    }
+    .hero-overlay-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+      background: linear-gradient(to top, rgba(8,8,8,0.8) 0%, transparent 100%);
+    }
+    .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 8rem 6rem; }
+    .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; opacity: 0; animation: fadeUp 0.9s 2.1s ease forwards; }
+    .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+    .hero-title { font-family: var(--font-display); font-size: clamp(3.8rem, 8.5vw, 9rem); font-weight: 300; line-height: 0.95; color: var(--white); margin-bottom: 1.8rem; letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.9s 2.3s ease forwards; }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-subtitle { font-size: 0.72rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(248,244,239,0.75); margin-bottom: 3rem; font-weight: 400; opacity: 0; animation: fadeUp 0.9s 2.5s ease forwards; }
+    .hero-btns { display: flex; gap: 1.2rem; align-items: center; opacity: 0; animation: fadeUp 0.9s 2.7s ease forwards; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+    .btn-primary { font-family: var(--font-body); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 1rem 2.5rem; transition: background var(--transition), transform var(--transition); display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline { font-family: var(--font-body); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: var(--white); border: 1px solid rgba(248,244,239,0.4); padding: 1rem 2.5rem; transition: border-color var(--transition), color var(--transition); display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-controls { position: absolute; bottom: 3rem; right: 6rem; display: flex; align-items: center; gap: 0.8rem; }
+    .hero-dot { width: 24px; height: 2px; background: rgba(255,255,255,0.3); cursor: pointer; transition: background var(--transition), width 0.3s ease; }
+    .hero-dot.active { background: var(--gold); width: 48px; }
+
+    /* Slide counter */
+    .hero-counter { position: absolute; bottom: 3rem; left: 8rem; font-family: var(--font-display); font-size: 0.8rem; color: rgba(248,244,239,0.4); letter-spacing: 0.2em; }
+    .hero-counter span { color: var(--gold); font-size: 1.6rem; font-weight: 300; }
+
+    .hero-scroll { position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); }
+    .hero-scroll::after { content: ''; width: 1px; height: 50px; background: linear-gradient(var(--gold), transparent); animation: scrollAnim 1.8s ease-in-out infinite; }
+    @keyframes scrollAnim { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* ═══════════════════════════════════════════
+       MARQUEE
+    ═══════════════════════════════════════════ */
+    .marquee-section { padding: 2rem 0; background: var(--dark2); overflow: hidden; border-top: 1px solid rgba(201,169,110,0.15); border-bottom: 1px solid rgba(201,169,110,0.15); }
+    .marquee-track { display: flex; white-space: nowrap; animation: marquee 22s linear infinite; }
+    .marquee-track span { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; font-weight: 300; color: var(--gray); padding: 0 3rem; display: flex; align-items: center; gap: 3rem; }
+    .marquee-track span::after { content: '✦'; color: var(--gold); font-style: normal; font-size: 0.8rem; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    section { padding: 8rem 8rem; }
+    .section-eyebrow { font-size: 0.62rem; letter-spacing: 0.5em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+    .section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+    .section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc { font-size: 0.82rem; line-height: 1.9; color: var(--gray); max-width: 520px; font-weight: 300; }
+    .gold-line { width: 50px; height: 1px; background: var(--gold); margin: 2rem 0; }
+
+    /* ═══════════════════════════════════════════
+       SERVICES — with real background images
+    ═══════════════════════════════════════════ */
+    .services-section { background: var(--dark); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .service-card { position: relative; overflow: hidden; height: 480px; cursor: pointer; }
+    .service-card:first-child { grid-row: span 2; height: auto; min-height: 600px; }
+    .service-card-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      filter: brightness(0.55) saturate(0.85);
+      transition: transform 0.9s ease, filter 0.5s ease;
+      transform: scale(1.02);
+    }
+    .service-card:hover .service-card-img { transform: scale(1.08); filter: brightness(0.45); }
+    .service-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.05) 70%, rgba(8,8,8,0) 100%); }
+    .service-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2.5rem; }
+    .service-tag { font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+    .service-name { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 0.8rem; }
+    .service-desc { font-size: 0.72rem; color: rgba(248,244,239,0.6); line-height: 1.7; max-width: 320px; }
+    .service-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 1.2rem; transition: gap var(--transition); }
+    .service-link:hover { gap: 1rem; }
+    .service-link::after { content: '→'; }
+
+    /* ═══════════════════════════════════════════
+       GALLERY — with real images
+    ═══════════════════════════════════════════ */
+    .gallery-section { background: var(--black); }
+    .gallery-header { text-align: center; margin-bottom: 4rem; }
+    .gallery-header .section-eyebrow { justify-content: center; }
+    .gallery-header .section-eyebrow::before { display: none; }
+    .gallery-tabs { display: flex; justify-content: center; gap: 0.2rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .gallery-tab { font-family: var(--font-body); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); padding: 0.7rem 1.8rem; border: 1px solid transparent; cursor: pointer; transition: all var(--transition); background: none; }
+    .gallery-tab.active, .gallery-tab:hover { color: var(--gold); border-color: rgba(201,169,110,0.4); }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+    .gallery-item { position: relative; overflow: hidden; background: var(--dark3); }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-item-inner { position: relative; width: 100%; height: 100%; min-height: 220px; }
+    .gallery-item:nth-child(1) .gallery-item-inner { min-height: 460px; }
+    .gallery-item:nth-child(5) .gallery-item-inner { min-height: 220px; }
+
+    .gallery-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.8s ease, filter 0.4s ease;
+      filter: brightness(0.75);
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.07); filter: brightness(0.9); }
+    .gc-overlay { position: absolute; inset: 0; opacity: 0; background: rgba(201,169,110,0.1); transition: opacity var(--transition); display: flex; align-items: center; justify-content: center; }
+    .gallery-item:hover .gc-overlay { opacity: 1; }
+    .gc-icon { width: 44px; height: 44px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.4rem; }
+    .gallery-item-label { position: absolute; bottom: 1rem; left: 1.2rem; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(248,244,239,0.5); }
+    .gallery-cta { text-align: center; margin-top: 3.5rem; }
+
+    /* ═══════════════════════════════════════════
+       BIRTHDAY SHOWCASE — Special section
+    ═══════════════════════════════════════════ */
+    .birthday-showcase { background: var(--dark2); padding: 8rem 8rem; }
+    .birthday-showcase-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+    .birthday-gallery-mosaic { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 220px); gap: 4px; }
+    .birthday-mosaic-item { overflow: hidden; position: relative; }
+    .birthday-mosaic-item:first-child { grid-column: span 2; grid-row: span 2; }
+    .birthday-mosaic-img {
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      filter: brightness(0.8) saturate(0.9);
+      transition: transform 0.7s ease, filter 0.4s ease;
+    }
+    .birthday-mosaic-item:hover .birthday-mosaic-img { transform: scale(1.06); filter: brightness(0.95) saturate(1.1); }
+    .birthday-text .section-eyebrow::before { display: none; }
+
+    /* ═══════════════════════════════════════════
+       STATS
+    ═══════════════════════════════════════════ */
+    .stats-section { padding: 5rem 8rem; background: var(--dark); border-top: 1px solid rgba(201,169,110,0.12); border-bottom: 1px solid rgba(201,169,110,0.12); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; }
+    .stat-item { text-align: center; position: relative; }
+    .stat-number { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 300; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gray); margin-top: 0.8rem; display: block; }
+    .stat-divider { width: 1px; height: 80%; background: rgba(201,169,110,0.15); position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    .stat-item:last-child .stat-divider { display: none; }
+
+    /* ═══════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════ */
+    .testimonials-section { background: var(--dark2); }
+    .testimonials-header { margin-bottom: 4rem; }
+    .testimonials-track-wrap { overflow: hidden; }
+    .testimonials-track { display: flex; gap: 2rem; animation: testimonialScroll 30s linear infinite; }
+    .testimonials-track:hover { animation-play-state: paused; }
+    @keyframes testimonialScroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .testimonial-card { flex: 0 0 380px; padding: 2.5rem; background: var(--dark3); border: 1px solid rgba(201,169,110,0.1); transition: border-color var(--transition); }
+    .testimonial-card:hover { border-color: rgba(201,169,110,0.35); }
+    .testimonial-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 1.2rem; }
+    .testimonial-text { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; font-style: italic; color: var(--white2); line-height: 1.7; margin-bottom: 1.5rem; }
+    .testimonial-author { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .testimonial-event { font-size: 0.65rem; color: var(--gray); margin-top: 0.2rem; }
+
+    /* ═══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    .about-section { padding: 8rem 8rem; background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: center; }
+    .about-image-wrap { position: relative; height: 600px; }
+    .about-img-main { position: absolute; top: 0; left: 0; right: 4rem; bottom: 4rem; overflow: hidden; }
+    .about-img-accent { position: absolute; bottom: 0; right: 0; width: 55%; height: 55%; overflow: hidden; border: 3px solid var(--black); }
+    .about-img-main-bg {
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      filter: brightness(0.75);
+    }
+    .about-img-accent-bg {
+      width: 100%; height: 100%;
+      background-size: cover; background-position: center;
+      filter: brightness(0.75);
+    }
+    .about-badge { position: absolute; top: 50%; left: -2rem; transform: translateY(-50%); width: 90px; height: 90px; border-radius: 50%; background: var(--gold); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .about-badge-num { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--black); line-height: 1; }
+    .about-badge-text { font-size: 0.45rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); font-weight: 600; }
+    .about-features { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .about-feature { display: flex; gap: 0.8rem; align-items: flex-start; }
+    .about-feature-icon { color: var(--gold); font-size: 1rem; margin-top: 0.1rem; flex-shrink: 0; }
+    .about-feature-title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); margin-bottom: 0.2rem; }
+    .about-feature-desc { font-size: 0.68rem; color: var(--gray); line-height: 1.5; }
+
+    /* ═══════════════════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════════════════ */
+    .cta-section { padding: 8rem 8rem; text-align: center; background: var(--dark); position: relative; overflow: hidden; }
+    .cta-section::before { content: 'ASR'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: var(--font-display); font-size: 30vw; font-weight: 300; color: rgba(201,169,110,0.03); pointer-events: none; white-space: nowrap; }
+    .cta-section .section-title { font-size: clamp(2.8rem, 5vw, 5rem); }
+    .cta-btns { display: flex; gap: 1.2rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer { background: var(--dark); padding: 5rem 8rem 2rem; border-top: 1px solid rgba(201,169,110,0.15); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 1.2rem; }
+    .footer-about { font-size: 0.72rem; line-height: 1.8; color: var(--gray); max-width: 280px; }
+    .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(201,169,110,0.25); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--gray); transition: border-color var(--transition), color var(--transition); }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col-title { font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; font-weight: 600; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-col ul li a { font-size: 0.75rem; color: var(--gray); transition: color var(--transition); display: flex; align-items: center; gap: 0.4rem; }
+    .footer-col ul li a::before { content: '—'; color: rgba(201,169,110,0.3); font-size: 0.6rem; }
+    .footer-col ul li a:hover { color: var(--white2); }
+    .footer-contact-item { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.72rem; color: var(--gray); margin-bottom: 0.8rem; }
+    .footer-contact-icon { color: var(--gold); flex-shrink: 0; margin-top: 0.1rem; }
+    .footer-bottom { padding-top: 2rem; border-top: 1px solid rgba(201,169,110,0.1); display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.1em; }
+    .footer-credits { font-size: 0.65rem; color: rgba(201,169,110,0.4); font-family: var(--font-display); font-style: italic; }
+
+    .whatsapp-btn { position: fixed; bottom: 2rem; right: 2rem; z-index: 900; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); transition: transform var(--transition), box-shadow var(--transition); }
+    .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+    .whatsapp-btn svg { width: 28px; height: 28px; fill: white; }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1200px) {
+      section { padding: 6rem 5rem; }
+      header { padding: 0 3rem; }
+      .hero-content { padding: 0 5rem 4rem; }
+      .hero-counter { left: 5rem; }
+      .about-section { padding: 6rem 5rem; gap: 5rem; }
+      .cta-section, .stats-section { padding: 5rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .birthday-showcase { padding: 6rem 5rem; }
+    }
+    @media (max-width: 900px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { padding: 0 2.5rem 4rem; }
+      .hero-counter { left: 2.5rem; }
+      .hero-title { font-size: clamp(2.8rem, 10vw, 5rem); }
+      section { padding: 5rem 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { height: 380px; }
+      .service-card:first-child { min-height: 380px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1; }
+      .gallery-item:nth-child(5) { grid-column: 1; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-section { grid-template-columns: 1fr; padding: 5rem 2.5rem; gap: 3rem; }
+      .about-image-wrap { height: 380px; }
+      .cta-section, .stats-section { padding: 5rem 2.5rem; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      footer { padding: 4rem 2.5rem 2rem; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .birthday-showcase { padding: 5rem 2.5rem; }
+      .birthday-showcase-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .birthday-gallery-mosaic { grid-template-rows: repeat(2, 170px); }
+    }
+    @media (max-width: 600px) {
+      header { padding: 0 1.5rem; }
+      .hero-controls { right: 1.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item:nth-child(1) { grid-column: 1; }
+      .birthday-gallery-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .birthday-mosaic-item:first-child { grid-column: 1; grid-row: 1; height: 280px; }
+      .birthday-mosaic-item { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<div id="loader">
+  <div class="loader-logo">ASR</div>
+  <div class="loader-subtitle">Studio · Photography</div>
+  <div class="loader-bar"></div>
+</div>
+
+<a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<header id="mainHeader">
+  <a href="index.html" class="logo">ASR <span>Studio</span></a>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="birthday.html">Birthday</a></li>
+      <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
+      <li><a href="pre-wedding.html">Pre Wedding</a></li>
+      <li><a href="wedding.html">Wedding</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="birthday.html">Birthday</a>
+  <a href="ring-ceremony.html">Ring Ceremony</a>
+  <a href="pre-wedding.html">Pre Wedding</a>
+  <a href="wedding.html">Wedding</a>
+  <a href="films.html">Films</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO — High-quality free Indian wedding images (Pexels/Unsplash)
+     Replace src with your own images: assets/images/wedding/wedding-1.jpg etc.
+══════════════════════════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-slides">
+
+    <!-- Slide 1: Grand Wedding — Replace with your wedding image -->
+    <div class="hero-slide active">
+      <img
+        src="assets/images/wedding/wedding-1.jpg"
+        onerror="this.onerror=null; this.src='https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=1920&q=85'"
+        alt="Indian Wedding Photography ASR Studio"
+      />
+    </div>
+
+    <!-- Slide 2: Pre-Wedding Romantic — Replace with your pre-wedding image -->
+    <div class="hero-slide">
+      <img
+        src="assets/images/prewedding/prewedding-1.jpg"
+        onerror="this.onerror=null; this.src='https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=1920&q=85'"
+        alt="Pre Wedding Photography ASR Studio"
+      />
+    </div>
+
+    <!-- Slide 3: Ring Ceremony / Celebration — Replace with your ring image -->
+    <div class="hero-slide">
+      <img
+        src="assets/images/ring/ring-1.jpg"
+        onerror="this.onerror=null; this.src='https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=1920&q=85'"
+        alt="Ring Ceremony Photography ASR Studio"
+      />
+    </div>
+
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-bottom"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Delhi NCR's Premier Photography Studio</div>
+    <h1 class="hero-title">Capturing<br><em>Beautiful</em><br>Memories</h1>
+    <p class="hero-subtitle">Birthday &nbsp;·&nbsp; Ring Ceremony &nbsp;·&nbsp; Pre Wedding &nbsp;·&nbsp; Wedding &nbsp;·&nbsp; Films</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Book Your Session</a>
+      <a href="#gallery" class="btn-outline">View Gallery</a>
+    </div>
+  </div>
+
+  <div class="hero-counter"><span id="slideNum">01</span> / 03</div>
+
+  <div class="hero-controls">
+    <div class="hero-dot active" data-slide="0"></div>
+    <div class="hero-dot" data-slide="1"></div>
+    <div class="hero-dot" data-slide="2"></div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>Birthday Photography</span><span>Ring Ceremony</span><span>Pre Wedding</span>
+    <span>Candid Wedding</span><span>Wedding Films</span><span>Delhi NCR</span>
+    <span>Birthday Photography</span><span>Ring Ceremony</span><span>Pre Wedding</span>
+    <span>Candid Wedding</span><span>Wedding Films</span><span>Delhi NCR</span>
+    <span>Birthday Photography</span><span>Ring Ceremony</span><span>Pre Wedding</span>
+    <span>Candid Wedding</span><span>Wedding Films</span><span>Delhi NCR</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════════════════ -->
+<section class="services-section" id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Our <em>Services</em></h2>
+    </div>
+    <p class="section-desc" style="max-width:360px;">Every celebration deserves to be remembered forever. We craft visual stories that last generations.</p>
+  </div>
+  <div class="services-grid">
+
+    <!-- Birthday — YOUR actual images -->
+    <div class="service-card reveal">
+      <div class="service-card-img" style="background-image:url('assets/images/birthday/0L4A0816.JPG'), url('assets/images/birthday/birthday-1.jpg'), url('https://images.pexels.com/photos/1405528/pexels-photo-1405528.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <div class="service-tag">01 &nbsp;/&nbsp; Celebration</div>
+        <div class="service-name">Birthday</div>
+        <p class="service-desc">Vibrant, joyful frames that capture every laugh, every candle, every precious moment of your special day.</p>
+        <a href="birthday.html" class="service-link">Explore Gallery</a>
+      </div>
+    </div>
+
+    <!-- Ring Ceremony -->
+    <div class="service-card reveal">
+      <div class="service-card-img" style="background-image:url('assets/images/ring/ring-1.jpg'), url('https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <div class="service-tag">02 &nbsp;/&nbsp; Promise</div>
+        <div class="service-name">Ring Ceremony</div>
+        <p class="service-desc">The glint of gold, the sparkle in their eyes — we photograph the moment two hearts choose each other.</p>
+        <a href="ring-ceremony.html" class="service-link">Explore Gallery</a>
+      </div>
+    </div>
+
+    <!-- Pre-Wedding -->
+    <div class="service-card reveal">
+      <div class="service-card-img" style="background-image:url('assets/images/prewedding/prewedding-1.jpg'), url('https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <div class="service-tag">03 &nbsp;/&nbsp; Love Story</div>
+        <div class="service-name">Pre Wedding</div>
+        <p class="service-desc">Your love story told beautifully — cinematic, romantic, and completely you.</p>
+        <a href="pre-wedding.html" class="service-link">Explore Gallery</a>
+      </div>
+    </div>
+
+    <!-- Wedding -->
+    <div class="service-card reveal">
+      <div class="service-card-img" style="background-image:url('assets/images/wedding/wedding-1.jpg'), url('https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <div class="service-tag">04 &nbsp;/&nbsp; Union</div>
+        <div class="service-name">Wedding</div>
+        <p class="service-desc">Candid emotions, grand rituals, intimate whispers — every layer of your wedding, perfectly preserved.</p>
+        <a href="wedding.html" class="service-link">Explore Gallery</a>
+      </div>
+    </div>
+
+    <!-- Films -->
+    <div class="service-card reveal">
+      <div class="service-card-img" style="background-image:url('assets/images/films/film-1.jpg'), url('https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+      <div class="service-card-overlay"></div>
+      <div class="service-card-content">
+        <div class="service-tag">05 &nbsp;/&nbsp; Cinema</div>
+        <div class="service-name">Films</div>
+        <p class="service-desc">Cinematic wedding films that you'll want to watch again and again — your day as a movie.</p>
+        <a href="films.html" class="service-link">Explore Films</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     BIRTHDAY SPECIAL SHOWCASE — Your actual birthday images
+══════════════════════════════════════════════════════════ -->
+<div class="birthday-showcase">
+  <div class="birthday-showcase-inner">
+    <div class="birthday-gallery-mosaic reveal">
+      <!-- Large featured birthday photo — YOUR actual files -->
+      <div class="birthday-mosaic-item">
+        <div class="birthday-mosaic-img" style="background-image:url('assets/images/birthday/0L4A0816.JPG'), url('assets/images/birthday/birthday-1.jpg'), url('https://images.pexels.com/photos/1405528/pexels-photo-1405528.jpeg?auto=compress&cs=tinysrgb&w=800&q=80');"></div>
+      </div>
+      <div class="birthday-mosaic-item">
+        <div class="birthday-mosaic-img" style="background-image:url('assets/images/birthday/0L4A0818.JPG'), url('assets/images/birthday/birthday-2.jpg'), url('https://images.pexels.com/photos/3171770/pexels-photo-3171770.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+      </div>
+      <div class="birthday-mosaic-item">
+        <div class="birthday-mosaic-img" style="background-image:url('assets/images/birthday/0L4A0878.JPG'), url('assets/images/birthday/birthday-3.jpg'), url('https://images.pexels.com/photos/1729799/pexels-photo-1729799.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+      </div>
+      <div class="birthday-mosaic-item">
+        <div class="birthday-mosaic-img" style="background-image:url('assets/images/birthday/0L4A0885.JPG'), url('assets/images/birthday/birthday-4.jpg'), url('https://images.pexels.com/photos/796607/pexels-photo-796607.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+      </div>
+    </div>
+    <div class="birthday-text reveal">
+      <div class="section-eyebrow">01 &nbsp;/&nbsp; Birthday</div>
+      <h2 class="section-title">Every Smile,<br><em>Every Candle</em></h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">We turn birthday moments into timeless art. From intimate family gatherings to grand celebrations, our photographers capture the real joy — the laughter, the surprise, the tears of happiness.</p>
+      <p class="section-desc" style="margin-top:1rem;">Delhi NCR's most trusted birthday photography studio.</p>
+      <a href="birthday.html" class="btn-outline" style="margin-top:2.5rem;display:inline-block">See Birthday Gallery</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     GALLERY — Mixed real images
+══════════════════════════════════════════════════════════ -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-eyebrow">Our Work</div>
+    <h2 class="section-title">Recent <em>Memories</em></h2>
+    <p class="section-desc" style="max-width:500px;margin:0 auto;">A glimpse into the stories we've had the privilege to tell.</p>
+  </div>
+  <div class="gallery-tabs">
+    <button class="gallery-tab active" data-cat="all">All</button>
+    <button class="gallery-tab" data-cat="birthday">Birthday</button>
+    <button class="gallery-tab" data-cat="ring">Ring Ceremony</button>
+    <button class="gallery-tab" data-cat="prewedding">Pre Wedding</button>
+    <button class="gallery-tab" data-cat="wedding">Wedding</button>
+  </div>
+  <div class="gallery-grid">
+
+    <!-- Item 1 — Large: Wedding (YOUR image, fallback to Pexels) -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/wedding/wedding-1.jpg'), url('https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Wedding</div>
+      </div>
+    </div>
+
+    <!-- Item 2 — Birthday YOUR image -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/birthday/0L4A0968.JPG'), url('assets/images/birthday/birthday-1.jpg'), url('https://images.pexels.com/photos/1405528/pexels-photo-1405528.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Birthday</div>
+      </div>
+    </div>
+
+    <!-- Item 3 — Ring Ceremony -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/ring/ring-1.jpg'), url('https://images.pexels.com/photos/1456613/pexels-photo-1456613.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Ring Ceremony</div>
+      </div>
+    </div>
+
+    <!-- Item 4 — Birthday YOUR image -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/birthday/0L4A0969.JPG'), url('assets/images/birthday/birthday-2.jpg'), url('https://images.pexels.com/photos/796607/pexels-photo-796607.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Birthday</div>
+      </div>
+    </div>
+
+    <!-- Item 5 — Wide: Pre-Wedding -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/prewedding/prewedding-1.jpg'), url('https://images.pexels.com/photos/3014856/pexels-photo-3014856.jpeg?auto=compress&cs=tinysrgb&w=900&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Pre Wedding</div>
+      </div>
+    </div>
+
+    <!-- Item 6 — Wedding candid -->
+    <div class="gallery-item">
+      <div class="gallery-item-inner">
+        <div class="gallery-img" style="background-image:url('assets/images/wedding/wedding-2.jpg'), url('https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+        <div class="gc-overlay"><div class="gc-icon">+</div></div>
+        <div class="gallery-item-label">Wedding</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="gallery-cta reveal">
+    <a href="birthday.html" class="btn-outline" style="margin-right:1rem">Birthday Gallery</a>
+    <a href="ring-ceremony.html" class="btn-outline" style="margin-right:1rem">Ring Ceremony</a>
+    <a href="wedding.html" class="btn-primary">Full Gallery</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item reveal"><div class="stat-number" data-count="500">0</div><span class="stat-label">Sessions Captured</span><div class="stat-divider"></div></div>
+    <div class="stat-item reveal"><div class="stat-number" data-count="200">0</div><span class="stat-label">Weddings Covered</span><div class="stat-divider"></div></div>
+    <div class="stat-item reveal"><div class="stat-number" data-count="8">0</div><span class="stat-label">Years Experience</span><div class="stat-divider"></div></div>
+    <div class="stat-item reveal"><div class="stat-number" data-count="100">0</div><span class="stat-label">Happy Families</span></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="testimonials-header reveal">
+    <div class="section-eyebrow">Client Stories</div>
+    <h2 class="section-title">What They <em>Say</em></h2>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track">
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"ASR Studio captured our wedding so beautifully. Every candid shot, every emotion — perfect."</p><div class="testimonial-author">Priya & Rahul</div><div class="testimonial-event">Wedding · Delhi</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Our ring ceremony photos are absolutely magical. The team was professional and so creative!"</p><div class="testimonial-author">Sneha Sharma</div><div class="testimonial-event">Ring Ceremony · Noida</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My daughter's birthday pictures came out so stunning. Everyone at the party was amazed."</p><div class="testimonial-author">Kavita Mehta</div><div class="testimonial-event">Birthday · Gurugram</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Pre-wedding shoot at Lodhi Garden — the photos look like a Bollywood movie poster. Loved it!"</p><div class="testimonial-author">Arjun & Nisha</div><div class="testimonial-event">Pre Wedding · Delhi</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The wedding film they made for us gets tears every single time we watch it. Pure art."</p><div class="testimonial-author">Vikram & Pooja</div><div class="testimonial-event">Wedding Film · Faridabad</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"ASR Studio captured our wedding so beautifully. Every candid shot, every emotion — perfect."</p><div class="testimonial-author">Priya & Rahul</div><div class="testimonial-event">Wedding · Delhi</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Our ring ceremony photos are absolutely magical. The team was professional and so creative!"</p><div class="testimonial-author">Sneha Sharma</div><div class="testimonial-event">Ring Ceremony · Noida</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"My daughter's birthday pictures came out so stunning. Everyone at the party was amazed."</p><div class="testimonial-author">Kavita Mehta</div><div class="testimonial-event">Birthday · Gurugram</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"Pre-wedding shoot at Lodhi Garden — the photos look like a Bollywood movie poster. Loved it!"</p><div class="testimonial-author">Arjun & Nisha</div><div class="testimonial-event">Pre Wedding · Delhi</div></div>
+      <div class="testimonial-card"><div class="testimonial-stars">★★★★★</div><p class="testimonial-text">"The wedding film they made for us gets tears every single time we watch it. Pure art."</p><div class="testimonial-author">Vikram & Pooja</div><div class="testimonial-event">Wedding Film · Faridabad</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+  <div class="about-image-wrap reveal">
+    <div class="about-img-main">
+      <div class="about-img-main-bg" style="background-image:url('assets/images/hero/hero-about.jpg'), url('assets/images/birthday/0L4A0971.JPG'), url('https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800&q=80');"></div>
+    </div>
+    <div class="about-img-accent">
+      <div class="about-img-accent-bg" style="background-image:url('assets/images/wedding/wedding-2.jpg'), url('https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=600&q=80');"></div>
+    </div>
+    <div class="about-badge"><div class="about-badge-num">8+</div><div class="about-badge-text">Years of<br>Excellence</div></div>
+  </div>
+  <div class="about-content reveal">
+    <div class="section-eyebrow">About ASR Studio</div>
+    <h2 class="section-title">We Tell Stories<br>Through <em>Light</em></h2>
+    <div class="gold-line"></div>
+    <p class="section-desc">ASR Studio is Delhi NCR's trusted photography studio for life's most beautiful celebrations. From the laughter-filled chaos of birthdays to the emotional grandeur of weddings, we believe every moment deserves to be immortalized with artistry and heart.</p>
+    <p class="section-desc" style="margin-top:1rem;">Our team blends technical mastery with a genuine love for storytelling — creating images and films that feel alive.</p>
+    <div class="about-features">
+      <div class="about-feature"><div class="about-feature-icon">◆</div><div><div class="about-feature-title">Candid Photography</div><div class="about-feature-desc">Real emotions, unscripted moments.</div></div></div>
+      <div class="about-feature"><div class="about-feature-icon">◆</div><div><div class="about-feature-title">Cinematic Films</div><div class="about-feature-desc">Your day as a beautiful movie.</div></div></div>
+      <div class="about-feature"><div class="about-feature-icon">◆</div><div><div class="about-feature-title">Quick Delivery</div><div class="about-feature-desc">Photos delivered within 7–10 days.</div></div></div>
+      <div class="about-feature"><div class="about-feature-icon">◆</div><div><div class="about-feature-title">Pan Delhi NCR</div><div class="about-feature-desc">Delhi, Noida, Gurugram & beyond.</div></div></div>
+    </div>
+    <a href="about.html" class="btn-outline" style="margin-top:2.5rem;display:inline-block">Know More About Us</a>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-eyebrow" style="justify-content:center;"><span style="display:flex;align-items:center;gap:1rem;"><span style="width:30px;height:1px;background:var(--gold);display:block"></span>Book a Session</span></div>
+  <h2 class="section-title">Ready to Create<br><em>Timeless Memories?</em></h2>
+  <p class="section-desc" style="margin:1.5rem auto;max-width:500px;text-align:center;">Whether it's a birthday, ring ceremony, pre-wedding or wedding — let's create something beautiful together.</p>
+  <div class="cta-btns">
+    <a href="contact.html" class="btn-primary">Book Your Session</a>
+    <a href="https://wa.me/919876543210" class="btn-outline">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">ASR Studio</div>
+      <p class="footer-about">Delhi NCR's trusted photography studio for birthdays, ring ceremonies, pre-wedding & wedding photography. Capturing your most precious memories with artistry.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">In</a>
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="YouTube">Yt</a>
+        <a href="#" aria-label="Pinterest">Pt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Our Services</div>
+      <ul>
+        <li><a href="birthday.html">Birthday Photography</a></li>
+        <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
+        <li><a href="pre-wedding.html">Pre Wedding</a></li>
+        <li><a href="wedding.html">Wedding</a></li>
+        <li><a href="films.html">Wedding Films</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Quick Links</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Get In Touch</div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+91 98765 43210</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>asrstudio@gmail.com</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">◉</span><span>Delhi NCR — Gurugram, Noida, Faridabad</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 ASR Studio. All rights reserved.</span>
+    <span class="footer-credits">Photography &amp; Films · Delhi NCR</span>
+  </div>
+</footer>
+
+<script>
+  // ── LOADER ──
+  window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 1800); });
+
+  // ── CUSTOM CURSOR ──
+  const cursor = document.getElementById('cursor');
+  const follower = document.getElementById('cursorFollower');
+  let mx = 0, my = 0, fx = 0, fy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  function animateCursor() {
+    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+    fx += (mx - fx) * 0.1; fy += (my - fy) * 0.1;
+    follower.style.left = fx + 'px'; follower.style.top = fy + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; follower.style.width = '60px'; follower.style.height = '60px'; });
+    el.addEventListener('mouseleave', () => { cursor.style.width = '10px'; cursor.style.height = '10px'; follower.style.width = '36px'; follower.style.height = '36px'; });
+  });
+
+  // ── HEADER SCROLL ──
+  const header = document.getElementById('mainHeader');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+
+  // ── MOBILE MENU ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }));
+
+  // ── HERO SLIDESHOW ──
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const slideNum = document.getElementById('slideNum');
+  function goToSlide(n) {
+    slides[currentSlide].classList.remove('active'); dots[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active'); dots[currentSlide].classList.add('active');
+    if(slideNum) slideNum.textContent = String(currentSlide + 1).padStart(2, '0');
+  }
+  dots.forEach(dot => dot.addEventListener('click', () => goToSlide(+dot.dataset.slide)));
+  setInterval(() => goToSlide(currentSlide + 1), 5500);
+
+  // ── REVEAL ON SCROLL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('revealed'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // ── COUNT UP STATS ──
+  function countUp(el, target) {
+    let start = 0;
+    const step = Math.ceil(target / 80);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = start + '+';
+      if (start >= target) clearInterval(timer);
+    }, 20);
+  }
+  const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { countUp(e.target, +e.target.dataset.count); statsObserver.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(el => statsObserver.observe(el));
+
+  // ── GALLERY TABS (filter visual cue) ──
+  document.querySelectorAll('.gallery-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

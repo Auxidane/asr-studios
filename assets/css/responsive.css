@@ -1,0 +1,92 @@
+/* ========= TABLET ========= */
+
+@media screen and (max-width:1024px){
+
+.hero h1{
+font-size:55px;
+}
+
+.service-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ========= MOBILE ========= */
+
+@media screen and (max-width:768px){
+
+.header{
+padding:15px 5%;
+}
+
+.logo{
+font-size:24px;
+}
+
+nav ul{
+gap:15px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.services h2,
+.featured h2,
+.gallery-section h2{
+font-size:32px;
+}
+
+.service-grid{
+grid-template-columns:1fr;
+}
+
+.gallery{
+grid-template-columns:1fr;
+}
+
+.gallery img{
+height:auto;
+}
+
+.btn{
+padding:12px 28px;
+}
+
+}
+
+/* ========= SMALL MOBILE ========= */
+
+@media screen and (max-width:480px){
+
+.hero{
+height:80vh;
+}
+
+.hero h1{
+font-size:28px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.logo{
+font-size:20px;
+}
+
+footer{
+padding:20px;
+}
+
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title>Ring Ceremony Photography – ASR Studio Delhi NCR</title>
+  <meta name="description" content="Professional Ring Ceremony Photography in Delhi NCR by ASR Studio. Capturing the promise of love in every frame." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--gold:#c9a96e;--gold-light:#e8d5a3;--black:#080808;--dark:#0f0f0f;--dark2:#161616;--dark3:#1e1e1e;--white:#f8f4ef;--white2:#e8e0d5;--gray:#888;--font-display:'Cormorant Garamond',serif;--font-body:'Montserrat',sans-serif;--transition:0.4s cubic-bezier(.25,.46,.45,.94);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);font-weight:300;overflow-x:hidden;cursor:none;}
+    a{text-decoration:none;color:inherit;}img{display:block;width:100%;height:100%;object-fit:cover;}ul{list-style:none;}
+    .cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s;}
+    .cursor-follower{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,169,110,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all .12s ease-out;}
+    #loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .8s ease,visibility .8s ease;}
+    #loader.hidden{opacity:0;visibility:hidden;}
+    .loader-logo{font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);font-weight:300;color:var(--gold);letter-spacing:.3em;animation:loaderPulse 1.5s ease-in-out infinite;}
+    .loader-subtitle{font-size:.65rem;letter-spacing:.5em;color:var(--gray);margin-top:.5rem;text-transform:uppercase;}
+    .loader-bar{width:160px;height:1px;background:var(--dark3);margin-top:2.5rem;overflow:hidden;position:relative;}
+    .loader-bar::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--gold);animation:loaderSlide 1.8s ease-in-out forwards;}
+    @keyframes loaderPulse{0%,100%{opacity:1}50%{opacity:.5}}
+    @keyframes loaderSlide{to{left:100%}}
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;height:80px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,0);backdrop-filter:blur(0);transition:background .5s,backdrop-filter .5s,height .3s;border-bottom:1px solid transparent;}
+    header.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-color:rgba(201,169,110,.15);height:68px;}
+    .logo{font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;line-height:1;}
+    .logo span{font-style:italic;color:var(--white);}
+    nav ul{display:flex;gap:.2rem;align-items:center;}
+    nav ul li a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--white2);padding:.5rem .9rem;position:relative;transition:color var(--transition);}
+    nav ul li a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1px;background:var(--gold);transition:left var(--transition),right var(--transition);}
+    nav ul li a:hover,nav ul li a.active{color:var(--gold);}
+    nav ul li a:hover::after,nav ul li a.active::after{left:.9rem;right:.9rem;}
+    .nav-cta{font-size:.68rem!important;font-weight:600!important;color:var(--black)!important;background:var(--gold);padding:.65rem 1.5rem!important;transition:background var(--transition)!important;}
+    .nav-cta:hover{background:var(--gold-light)!important;}
+    .nav-cta::after{display:none!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;}
+    .hamburger span{display:block;width:28px;height:1.5px;background:var(--white);transition:var(--transition);}
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;backdrop-filter:blur(20px);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;font-weight:300;letter-spacing:.15em;color:var(--white2);transition:color var(--transition);}
+    .mobile-menu a:hover{color:var(--gold);}
+    .page-hero{position:relative;height:70vh;min-height:500px;display:flex;align-items:flex-end;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#00101a,#001525,#0a0014);}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.4);}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,8,.95) 0%,rgba(8,8,8,.3) 60%,rgba(8,8,8,.1) 100%);}
+    .page-hero-content{position:relative;padding:0 8rem 5rem;z-index:2;}
+    .page-eyebrow{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
+    .page-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold);}
+    .page-title{font-family:var(--font-display);font-size:clamp(3rem,8vw,7rem);font-weight:300;color:var(--white);line-height:1;}
+    .page-title em{font-style:italic;color:var(--gold);}
+    .page-subtitle{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:var(--white2);margin-top:1rem;}
+    .breadcrumb{padding:1.2rem 8rem;background:var(--dark2);border-bottom:1px solid rgba(201,169,110,.1);display:flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);}
+    .breadcrumb a{color:var(--gray);transition:color var(--transition);}
+    .breadcrumb a:hover{color:var(--gold);}
+    .breadcrumb span{color:var(--gold);}
+    .intro-section{padding:6rem 8rem;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+    .section-eyebrow{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
+    .section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
+    .section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.5rem;}
+    .section-title em{font-style:italic;color:var(--gold);}
+    .section-desc{font-size:.82rem;line-height:1.9;color:var(--gray);font-weight:300;margin-bottom:1rem;}
+    .gold-line{width:50px;height:1px;background:var(--gold);margin:1.5rem 0;}
+    .intro-image{position:relative;height:420px;}
+    .intro-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.8);}
+    .intro-image-bg{width:100%;height:100%;background:linear-gradient(160deg,#00101a,#001525);}
+    .gallery-section{padding:6rem 8rem;background:var(--black);}
+    .gallery-section-header{text-align:center;margin-bottom:4rem;}
+    .gallery-section-header .section-eyebrow{justify-content:center;}
+    .gallery-section-header .section-eyebrow::before{display:none;}
+    .masonry-grid{columns:3;column-gap:4px;}
+    .masonry-item{break-inside:avoid;margin-bottom:4px;position:relative;overflow:hidden;cursor:pointer;}
+    .masonry-item img{width:100%;display:block;filter:brightness(.8);transition:transform .7s ease,filter .4s ease;}
+    .masonry-item-bg{width:100%;display:block;min-height:250px;}
+    .masonry-item:hover img{transform:scale(1.05);filter:brightness(.95);}
+    .masonry-item:nth-child(5n) .masonry-item-bg{min-height:350px;}
+    .masonry-item:nth-child(3n) .masonry-item-bg{min-height:300px;}
+    .masonry-overlay{position:absolute;inset:0;background:rgba(201,169,110,0);display:flex;align-items:center;justify-content:center;transition:background .4s ease;}
+    .masonry-item:hover .masonry-overlay{background:rgba(201,169,110,.1);}
+    .masonry-icon{width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;opacity:0;transform:scale(.7);transition:opacity .3s,transform .3s;}
+    .masonry-item:hover .masonry-icon{opacity:1;transform:scale(1);}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:9000;align-items:center;justify-content:center;}
+    .lightbox.open{display:flex;}
+    .lightbox-img{max-width:88vw;max-height:85vh;object-fit:contain;}
+    .lightbox-close{position:absolute;top:2rem;right:2rem;font-size:2rem;color:var(--white2);cursor:pointer;transition:color var(--transition);background:none;border:none;}
+    .lightbox-close:hover{color:var(--gold);}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);font-size:2.5rem;color:var(--white2);cursor:pointer;background:none;border:none;padding:1rem;transition:color var(--transition);}
+    .lightbox-prev{left:2rem;}.lightbox-next{right:2rem;}
+    .lightbox-prev:hover,.lightbox-next:hover{color:var(--gold);}
+    .lightbox-counter{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);}
+    .packages-section{padding:6rem 8rem;background:var(--dark2);}
+    .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+    .pkg-card{padding:2.5rem;background:var(--dark3);border:1px solid rgba(201,169,110,.1);transition:border-color var(--transition),transform var(--transition);position:relative;overflow:hidden;}
+    .pkg-card.featured{border-color:rgba(201,169,110,.5);background:linear-gradient(160deg,#00101a,var(--dark3));}
+    .pkg-card.featured::before{content:'Popular';position:absolute;top:1.2rem;right:1.2rem;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:.3rem .8rem;}
+    .pkg-card:hover{border-color:rgba(201,169,110,.4);transform:translateY(-4px);}
+    .pkg-name{font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:.5rem;}
+    .pkg-price{font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1;margin:1rem 0;}
+    .pkg-price span{font-size:1rem;color:var(--gray);}
+    .pkg-divider{width:40px;height:1px;background:var(--gold);margin:1.2rem 0;}
+    .pkg-features{display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem;}
+    .pkg-features li{font-size:.72rem;color:var(--gray);display:flex;align-items:center;gap:.6rem;}
+    .pkg-features li::before{content:'✓';color:var(--gold);font-weight:600;flex-shrink:0;}
+    .btn-pkg{display:block;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;padding:.9rem 1.5rem;border:1px solid rgba(201,169,110,.4);color:var(--gold);transition:all var(--transition);}
+    .btn-pkg:hover,.pkg-card.featured .btn-pkg{background:var(--gold);color:var(--black);border-color:var(--gold);}
+    .cta-section{padding:6rem 8rem;text-align:center;background:var(--dark);position:relative;overflow:hidden;}
+    .cta-section::before{content:'RING';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:22vw;font-weight:300;color:rgba(201,169,110,.03);pointer-events:none;white-space:nowrap;}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);margin-bottom:1.5rem;}
+    .cta-title em{font-style:italic;color:var(--gold);}
+    .cta-desc{font-size:.82rem;color:var(--gray);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:1rem 2.5rem;transition:background var(--transition),transform var(--transition);display:inline-block;}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-outline{font-size:.68rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--white);border:1px solid rgba(248,244,239,.4);padding:1rem 2.5rem;transition:border-color var(--transition),color var(--transition);display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+    footer{background:var(--dark);padding:5rem 8rem 2rem;border-top:1px solid rgba(201,169,110,.15);}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
+    .footer-logo{font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:var(--gold);letter-spacing:.2em;margin-bottom:1.2rem;}
+    .footer-about{font-size:.72rem;line-height:1.8;color:var(--gray);max-width:280px;}
+    .footer-social{display:flex;gap:.8rem;margin-top:1.5rem;}
+    .footer-social a{width:36px;height:36px;border:1px solid rgba(201,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gray);transition:border-color var(--transition),color var(--transition);}
+    .footer-social a:hover{border-color:var(--gold);color:var(--gold);}
+    .footer-col-title{font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:600;}
+    .footer-col ul{display:flex;flex-direction:column;gap:.7rem;}
+    .footer-col ul li a{font-size:.75rem;color:var(--gray);transition:color var(--transition);display:flex;align-items:center;gap:.4rem;}
+    .footer-col ul li a::before{content:'—';color:rgba(201,169,110,.3);font-size:.6rem;}
+    .footer-col ul li a:hover{color:var(--white2);}
+    .footer-contact-item{display:flex;gap:.7rem;align-items:flex-start;font-size:.72rem;color:var(--gray);margin-bottom:.8rem;}
+    .footer-contact-icon{color:var(--gold);flex-shrink:0;margin-top:.1rem;}
+    .footer-bottom{padding-top:2rem;border-top:1px solid rgba(201,169,110,.1);display:flex;justify-content:space-between;align-items:center;}
+    .footer-copy{font-size:.65rem;color:var(--gray);}
+    .footer-credits{font-size:.65rem;color:rgba(201,169,110,.4);font-family:var(--font-display);font-style:italic;}
+    .whatsapp-btn{position:fixed;bottom:2rem;right:2rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform var(--transition);}
+    .whatsapp-btn:hover{transform:scale(1.12);}
+    .whatsapp-btn svg{width:28px;height:28px;fill:white;}
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease;}
+    .reveal.revealed{opacity:1;transform:translateY(0);}
+    .gp1{background:linear-gradient(160deg,#00101a,#001525);}
+    .gp2{background:linear-gradient(160deg,#001525,#0a0014);}
+    .gp3{background:linear-gradient(160deg,#0a0014,#00101a);}
+    .gp4{background:linear-gradient(160deg,#001018,#000d20);}
+    .gp5{background:linear-gradient(160deg,#00081a,#001018);}
+    .gp6{background:linear-gradient(160deg,#050014,#001018);}
+    @media(max-width:1100px){.intro-section{grid-template-columns:1fr;gap:3rem;}.masonry-grid{columns:2;}.packages-grid{grid-template-columns:1fr;}footer,.page-hero-content,.breadcrumb,.gallery-section,.intro-section,.packages-section,.cta-section{padding-left:4rem;padding-right:4rem;}}
+    @media(max-width:900px){nav{display:none;}.hamburger{display:flex;}.page-hero-content,.breadcrumb,.gallery-section,.intro-section,.packages-section,.cta-section{padding-left:2.5rem;padding-right:2.5rem;}footer{padding:4rem 2.5rem 2rem;}.footer-top{grid-template-columns:1fr;gap:2rem;}.footer-bottom{flex-direction:column;gap:1rem;text-align:center;}header{padding:0 1.5rem;}}
+    @media(max-width:600px){.masonry-grid{columns:1;}.cta-btns{flex-direction:column;align-items:center;}}
+  </style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+<div id="loader"><div class="loader-logo">ASR</div><div class="loader-subtitle">Studio · Photography</div><div class="loader-bar"></div></div>
+<a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<header id="mainHeader">
+  <a href="index.html" class="logo">ASR <span>Studio</span></a>
+  <nav><ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="birthday.html">Birthday</a></li>
+    <li><a href="ring-ceremony.html" class="active">Ring Ceremony</a></li>
+    <li><a href="pre-wedding.html">Pre Wedding</a></li>
+    <li><a href="wedding.html">Wedding</a></li>
+    <li><a href="films.html">Films</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul></nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="birthday.html">Birthday</a><a href="ring-ceremony.html">Ring Ceremony</a><a href="pre-wedding.html">Pre Wedding</a><a href="wedding.html">Wedding</a><a href="films.html">Films</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+</div>
+<div class="page-hero">
+  <div class="page-hero-bg"><img src="assets/images/ring/ring-1.jpg" alt="Ring Ceremony Photography" onerror="this.style.display='none'"/></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">ASR Studio · Promise</div>
+    <h1 class="page-title">Ring Ceremony<br><em>Photography</em></h1>
+    <p class="page-subtitle">The glint of gold. The sparkle of love.</p>
+  </div>
+</div>
+<div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Ring Ceremony Photography</span></div>
+<div class="intro-section">
+  <div class="reveal">
+    <div class="section-eyebrow">Our Ring Ceremony Photography</div>
+    <h2 class="section-title">The Moment Two<br>Hearts <em>Choose Each Other</em></h2>
+    <div class="gold-line"></div>
+    <p class="section-desc">A ring ceremony is more than an exchange of rings — it's the first official promise of a lifetime together. The nervous hands, the happy tears, the cheering families — every second holds something irreplaceable. We capture it all with elegance and emotion.</p>
+    <p class="section-desc">ASR Studio specializes in candid, artistic ring ceremony photography across Delhi, Noida, Gurugram, and Faridabad. Our photographers blend into your celebration, capturing the raw, unscripted beauty of your day.</p>
+  </div>
+  <div class="intro-image reveal">
+    <img src="assets/images/ring/ring-2.jpg" alt="Ring Ceremony" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <div class="intro-image-bg" style="display:none;"></div>
+  </div>
+</div>
+<section class="gallery-section">
+  <div class="gallery-section-header reveal">
+    <div class="section-eyebrow">Gallery</div>
+    <h2 class="section-title">Ring Ceremony <em>Memories</em></h2>
+    <p style="font-size:.82rem;color:var(--gray);max-width:480px;margin:.8rem auto 0;line-height:1.8;">10 beautiful moments from our ring ceremony photography sessions.</p>
+  </div>
+  <div class="masonry-grid" id="galleryGrid">
+    <div class="masonry-item" data-index="0"><img src="assets/images/ring/ring-1.jpg" alt="Ring Ceremony Photo 1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp1" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="1"><img src="assets/images/ring/ring-2.jpg" alt="Ring Ceremony Photo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp2" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="2"><img src="assets/images/ring/ring-3.jpg" alt="Ring Ceremony Photo 3" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp3" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="3"><img src="assets/images/ring/ring-4.jpg" alt="Ring Ceremony Photo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp4" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="4"><img src="assets/images/ring/ring-5.jpg" alt="Ring Ceremony Photo 5" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp5" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="5"><img src="assets/images/ring/ring-6.jpg" alt="Ring Ceremony Photo 6" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp6" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="6"><img src="assets/images/ring/ring-7.jpg" alt="Ring Ceremony Photo 7" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp1" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="7"><img src="assets/images/ring/ring-8.jpg" alt="Ring Ceremony Photo 8" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp2" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="8"><img src="assets/images/ring/ring-9.jpg" alt="Ring Ceremony Photo 9" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp3" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="9"><img src="assets/images/ring/ring-10.jpg" alt="Ring Ceremony Photo 10" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><div class="masonry-item-bg gp4" style="display:none;"></div><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+  </div>
+</section>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose">✕</button>
+  <button class="lightbox-prev" id="lbPrev">‹</button>
+  <img class="lightbox-img" id="lbImg" src="" alt=""/>
+  <button class="lightbox-next" id="lbNext">›</button>
+  <div class="lightbox-counter" id="lbCounter">1 / 10</div>
+</div>
+<section class="packages-section">
+  <div class="reveal"><div class="section-eyebrow">Packages</div><h2 class="section-title">Ring Ceremony <em>Packages</em></h2></div>
+  <div class="packages-grid">
+    <div class="pkg-card reveal"><div class="pkg-name">Classic</div><div class="pkg-price">₹10,000 <span>/ session</span></div><div class="pkg-divider"></div><ul class="pkg-features"><li>3 Hours Coverage</li><li>1 Photographer</li><li>150+ Edited Photos</li><li>Online Gallery</li><li>7-Day Delivery</li></ul><a href="contact.html" class="btn-pkg">Book Now</a></div>
+    <div class="pkg-card featured reveal"><div class="pkg-name">Premium</div><div class="pkg-price">₹18,000 <span>/ session</span></div><div class="pkg-divider"></div><ul class="pkg-features"><li>5 Hours Coverage</li><li>2 Photographers</li><li>300+ Edited Photos</li><li>Highlight Reel Video</li><li>Printed Album (20 pages)</li><li>5-Day Delivery</li></ul><a href="contact.html" class="btn-pkg">Book Now</a></div>
+    <div class="pkg-card reveal"><div class="pkg-name">Luxury</div><div class="pkg-price">₹30,000 <span>/ session</span></div><div class="pkg-divider"></div><ul class="pkg-features"><li>Full Day Coverage</li><li>2 Photographers + Videographer</li><li>500+ Edited Photos</li><li>Full Cinematic Film</li><li>Premium Album + Prints</li><li>Same-Week Delivery</li></ul><a href="contact.html" class="btn-pkg">Book Now</a></div>
+  </div>
+</section>
+<section class="cta-section">
+  <h2 class="cta-title reveal">Book Your<br><em>Ring Ceremony Session</em></h2>
+  <p class="cta-desc reveal">Your promise of love deserves to be beautifully documented. Contact ASR Studio to book your ring ceremony photography session.</p>
+  <div class="cta-btns reveal"><a href="contact.html" class="btn-primary">Book a Session</a><a href="https://wa.me/919876543210" class="btn-outline">WhatsApp Us</a></div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-logo">ASR Studio</div><p class="footer-about">Delhi NCR's trusted photography studio for birthdays, ring ceremonies, pre-wedding & wedding photography.</p><div class="footer-social"><a href="#">In</a><a href="#">Fb</a><a href="#">Yt</a><a href="#">Pt</a></div></div>
+    <div class="footer-col"><div class="footer-col-title">Our Services</div><ul><li><a href="birthday.html">Birthday Photography</a></li><li><a href="ring-ceremony.html">Ring Ceremony</a></li><li><a href="pre-wedding.html">Pre Wedding</a></li><li><a href="wedding.html">Wedding</a></li><li><a href="films.html">Wedding Films</a></li></ul></div>
+    <div class="footer-col"><div class="footer-col-title">Quick Links</div><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><div class="footer-col-title">Get In Touch</div><div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+91 98765 43210</span></div><div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>asrstudio@gmail.com</span></div><div class="footer-contact-item"><span class="footer-contact-icon">◉</span><span>Delhi NCR — Gurugram, Noida, Faridabad</span></div></div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 ASR Studio. All rights reserved.</span><span class="footer-credits">Photography & Films · Delhi NCR</span></div>
+</footer>
+<script>
+  window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hidden');},1800);});
+  const cursor=document.getElementById('cursor'),follower=document.getElementById('cursorFollower');
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  function animateCursor(){cursor.style.left=mx+'px';cursor.style.top=my+'px';fx+=(mx-fx)*.1;fy+=(my-fy)*.1;follower.style.left=fx+'px';follower.style.top=fy+'px';requestAnimationFrame(animateCursor);}
+  animateCursor();
+  document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';follower.style.width='60px';follower.style.height='60px';});el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';follower.style.width='36px';follower.style.height='36px';});});
+  window.addEventListener('scroll',()=>{document.getElementById('mainHeader').classList.toggle('scrolled',window.scrollY>60);});
+  const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('open');}));
+  const reveals=document.querySelectorAll('.reveal');
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:.12}).observe===undefined||document.querySelectorAll('.reveal').forEach(r=>new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:.12}).observe(r));
+  const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(r=>revealObs.observe(r));
+  const items=document.querySelectorAll('.masonry-item'),lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbCounter=document.getElementById('lbCounter');
+  let cur=0;
+  function openLb(n){cur=n;const imgEl=items[n].querySelector('img');lbImg.src=imgEl&&imgEl.style.display!=='none'?imgEl.src:'';lbCounter.textContent=(n+1)+' / '+items.length;lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  items.forEach((item,i)=>item.addEventListener('click',()=>openLb(i)));
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  document.getElementById('lbPrev').addEventListener('click',()=>openLb((cur-1+items.length)%items.length));
+  document.getElementById('lbNext').addEventListener('click',()=>openLb((cur+1)%items.length));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb((cur-1+items.length)%items.length);if(e.key==='ArrowRight')openLb((cur+1)%items.length);});
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+</script>
+</body>
+</html>
