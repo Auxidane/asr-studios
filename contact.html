@@ -1,47 +1,570 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact Us | ASR Studio</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+  <title>Contact Us – ASR Studio Delhi NCR</title>
+  <meta name="description" content="Get in touch with ASR Studio for birthday, pre-wedding, ring ceremony, and wedding photography across Delhi NCR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:#c9a96e;--gold-light:#e8d5a3;
+      --black:#080808;--dark:#0f0f0f;--dark2:#161616;--dark3:#1e1e1e;
+      --white:#f8f4ef;--white2:#e8e0d5;--gray:#888;
+      --font-display:'Cormorant Garamond',serif;
+      --font-body:'Montserrat',sans-serif;
+      --tr:0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:var(--font-body);font-weight:300;overflow-x:hidden;cursor:none;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;width:100%;height:100%;object-fit:cover;}
+    ul{list-style:none;}
+    input,textarea,button{font-family:var(--font-body);}
+
+    .cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s;will-change:transform;}
+    .cursor-follower{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,169,110,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);will-change:transform;}
+
+    #loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;}
+    #loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+    .loader-logo{font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);font-weight:300;color:var(--gold);letter-spacing:.3em;animation:loaderPulse 1.5s ease-in-out infinite;}
+    .loader-subtitle{font-size:.65rem;letter-spacing:.5em;color:var(--gray);margin-top:.5rem;text-transform:uppercase;}
+    .loader-bar{width:160px;height:1px;background:var(--dark3);margin-top:2.5rem;overflow:hidden;position:relative;}
+    .loader-bar::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--gold);animation:loaderSlide 1.5s ease-in-out forwards;}
+    @keyframes loaderPulse{0%,100%{opacity:1}50%{opacity:.4}}
+    @keyframes loaderSlide{to{left:100%}}
+
+    header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;height:80px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,height .3s;border-bottom:1px solid transparent;}
+    header.scrolled{background:rgba(8,8,8,.95);backdrop-filter:blur(16px);border-color:rgba(201,169,110,.15);height:68px;}
+    .logo{font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;}
+    .logo span{font-style:italic;color:var(--white);}
+    nav ul{display:flex;gap:.2rem;align-items:center;}
+    nav ul li a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--white2);padding:.5rem .9rem;position:relative;transition:color var(--tr);}
+    nav ul li a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:1px;background:var(--gold);transition:left var(--tr),right var(--tr);}
+    nav ul li a:hover,nav ul li a.active{color:var(--gold);}
+    nav ul li a:hover::after,nav ul li a.active::after{left:.9rem;right:.9rem;}
+    .nav-cta{font-size:.68rem!important;font-weight:600!important;color:var(--black)!important;background:var(--gold);padding:.65rem 1.5rem!important;transition:background var(--tr)!important;}
+    .nav-cta:hover{background:var(--gold-light)!important;}
+    .nav-cta::after{display:none!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:1001;}
+    .hamburger span{display:block;width:28px;height:1.5px;background:var(--white);transition:var(--tr);}
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;inset:0;background:rgba(8,8,8,.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;backdrop-filter:blur(20px);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;font-weight:300;letter-spacing:.15em;color:var(--white2);transition:color var(--tr);}
+    .mobile-menu a:hover{color:var(--gold);}
+
+    /* PAGE HERO */
+    .page-hero{position:relative;height:48vh;min-height:340px;display:flex;align-items:flex-end;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a0d00,#2e1500,#0d0808);}
+    .page-hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(201,169,110,.08),transparent 60%);}
+    .page-hero-content{position:relative;padding:0 8rem 3.5rem;z-index:2;}
+    .page-eyebrow{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
+    .page-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold);}
+    .page-title{font-family:var(--font-display);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:300;color:var(--white);line-height:1;}
+    .page-title em{font-style:italic;color:var(--gold);}
+    .page-subtitle{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white2);margin-top:1rem;}
+
+    .breadcrumb{padding:1.1rem 8rem;background:var(--dark2);border-bottom:1px solid rgba(201,169,110,.1);display:flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);}
+    .breadcrumb a{color:var(--gray);transition:color var(--tr);}
+    .breadcrumb a:hover{color:var(--gold);}
+    .breadcrumb span{color:var(--gold);}
+
+    /* CONTACT GRID */
+    .contact-section{padding:6rem 8rem;background:var(--dark);display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:start;}
+    .section-eyebrow{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
+    .section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
+    .section-title{font-family:var(--font-display);font-size:clamp(2.1rem,3.6vw,3.2rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.3rem;}
+    .section-title em{font-style:italic;color:var(--gold);}
+    .section-desc{font-size:.82rem;line-height:1.9;color:var(--gray);font-weight:300;margin-bottom:2rem;max-width:420px;}
+    .gold-line{width:50px;height:1px;background:var(--gold);margin:1.4rem 0;}
+
+    /* INFO CARDS */
+    .info-cards{display:flex;flex-direction:column;gap:1.1rem;margin-top:2.5rem;}
+    .info-card{display:flex;align-items:flex-start;gap:1.2rem;padding:1.4rem 1.3rem;background:var(--dark3);border:1px solid rgba(201,169,110,.1);transition:border-color var(--tr),transform var(--tr);}
+    .info-card:hover{border-color:rgba(201,169,110,.4);transform:translateX(4px);}
+    .info-card-icon{width:42px;height:42px;border-radius:50%;border:1px solid rgba(201,169,110,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:1.1rem;}
+    .info-card-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+    .info-card-value{font-size:.85rem;color:var(--white2);line-height:1.5;}
+    .info-card-value a{transition:color var(--tr);}
+    .info-card-value a:hover{color:var(--gold);}
+
+    .social-row{display:flex;gap:.8rem;margin-top:1.8rem;}
+    .social-row a{width:40px;height:40px;border:1px solid rgba(201,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--gray);transition:border-color var(--tr),color var(--tr);}
+    .social-row a:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* FORM */
+    .contact-form-wrap{background:var(--dark3);border:1px solid rgba(201,169,110,.12);padding:3rem;position:relative;}
+    .form-header{margin-bottom:2rem;}
+    .form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:300;color:var(--white);margin-bottom:.4rem;}
+    .form-sub{font-size:.78rem;color:var(--gray);line-height:1.7;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;}
+    .field{position:relative;}
+    .field.full{grid-column:1 / -1;}
+    .field label{display:block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+    .field input,.field select,.field textarea{width:100%;background:var(--dark2);border:1px solid rgba(201,169,110,.18);color:var(--white);font-size:.85rem;padding:.85rem 1rem;transition:border-color var(--tr),background var(--tr);font-weight:300;}
+    .field input::placeholder,.field textarea::placeholder{color:rgba(136,136,136,.7);}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:var(--dark3);}
+    .field textarea{resize:vertical;min-height:120px;font-family:var(--font-body);}
+    .field select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0L5 6L10 0' fill='%23c9a96e'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;}
+    .field select option{background:var(--dark2);color:var(--white);}
+
+    .btn-submit{width:100%;font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:1.05rem 2rem;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr);margin-top:.6rem;}
+    .btn-submit:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+
+    .form-status{margin-top:1rem;font-size:.75rem;letter-spacing:.05em;display:none;padding:.85rem 1rem;border-left:2px solid var(--gold);background:rgba(201,169,110,.06);}
+    .form-status.show{display:block;}
+    .form-status.error{border-color:#c96e6e;background:rgba(201,110,110,.08);color:#e8b3b3;}
+    .form-status.success{color:var(--gold-light);}
+
+    /* MAP */
+    .map-section{padding:0;background:var(--black);}
+    .map-frame{width:100%;height:420px;filter:grayscale(.3) invert(.92) contrast(.9);border:none;display:block;}
+
+    /* QUICK CONTACT STRIP */
+    .quick-strip{background:var(--dark2);padding:3.5rem 8rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(201,169,110,.1);border-bottom:1px solid rgba(201,169,110,.1);}
+    .quick-item{text-align:center;}
+    .quick-item-icon{width:54px;height:54px;border-radius:50%;border:1px solid rgba(201,169,110,.4);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:var(--gold);font-size:1.3rem;}
+    .quick-item-title{font-family:var(--font-display);font-size:1.3rem;color:var(--white);margin-bottom:.4rem;}
+    .quick-item-desc{font-size:.75rem;color:var(--gray);line-height:1.7;}
+    .quick-item-desc a{color:var(--gold-light);transition:color var(--tr);}
+    .quick-item-desc a:hover{color:var(--gold);}
+
+    /* FAQ */
+    .faq-section{padding:6rem 8rem;background:var(--dark);}
+    .faq-header{text-align:center;margin-bottom:3.5rem;}
+    .faq-header .section-eyebrow{justify-content:center;}
+    .faq-header .section-eyebrow::before{display:none;}
+    .faq-list{max-width:780px;margin:0 auto;}
+    .faq-item{border-bottom:1px solid rgba(201,169,110,.12);}
+    .faq-question{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;cursor:pointer;font-size:.95rem;color:var(--white2);font-family:var(--font-display);font-weight:400;}
+    .faq-icon{color:var(--gold);font-size:1.2rem;transition:transform .3s;flex-shrink:0;margin-left:1rem;}
+    .faq-item.open .faq-icon{transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+    .faq-item.open .faq-answer{max-height:200px;}
+    .faq-answer-inner{padding-bottom:1.5rem;font-size:.82rem;color:var(--gray);line-height:1.8;}
+
+    /* CTA */
+    .cta-section{padding:5rem 8rem;text-align:center;background:var(--dark2);position:relative;overflow:hidden;}
+    .cta-section::before{content:'CONTACT';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:14vw;font-weight:300;color:rgba(201,169,110,.025);pointer-events:none;white-space:nowrap;}
+    .cta-title{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:1.2rem;position:relative;}
+    .cta-title em{font-style:italic;color:var(--gold);}
+    .cta-desc{font-size:.82rem;color:var(--gray);max-width:460px;margin:0 auto 2rem;line-height:1.8;position:relative;}
+    .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;}
+    .btn-primary{font-size:.68rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:1rem 2.5rem;transition:background var(--tr),transform var(--tr);display:inline-block;}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-outline{font-size:.68rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--white);border:1px solid rgba(248,244,239,.35);padding:1rem 2.5rem;transition:border-color var(--tr),color var(--tr);display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* FOOTER */
+    footer{background:var(--dark);padding:5rem 8rem 2rem;border-top:1px solid rgba(201,169,110,.15);}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
+    .footer-logo{font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:var(--gold);letter-spacing:.2em;margin-bottom:1.2rem;}
+    .footer-about{font-size:.72rem;line-height:1.8;color:var(--gray);max-width:280px;}
+    .footer-social{display:flex;gap:.8rem;margin-top:1.5rem;}
+    .footer-social a{width:36px;height:36px;border:1px solid rgba(201,169,110,.25);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--gray);transition:border-color var(--tr),color var(--tr);}
+    .footer-social a:hover{border-color:var(--gold);color:var(--gold);}
+    .footer-col-title{font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;font-weight:600;}
+    .footer-col ul{display:flex;flex-direction:column;gap:.7rem;}
+    .footer-col ul li a{font-size:.75rem;color:var(--gray);transition:color var(--tr);display:flex;align-items:center;gap:.4rem;}
+    .footer-col ul li a::before{content:'—';color:rgba(201,169,110,.3);font-size:.6rem;}
+    .footer-col ul li a:hover{color:var(--white2);}
+    .footer-contact-item{display:flex;gap:.7rem;align-items:flex-start;font-size:.72rem;color:var(--gray);margin-bottom:.8rem;}
+    .footer-contact-icon{color:var(--gold);flex-shrink:0;margin-top:.1rem;}
+    .footer-bottom{padding-top:2rem;border-top:1px solid rgba(201,169,110,.1);display:flex;justify-content:space-between;align-items:center;}
+    .footer-copy{font-size:.65rem;color:var(--gray);}
+    .footer-credits{font-size:.65rem;color:rgba(201,169,110,.4);font-family:var(--font-display);font-style:italic;}
+
+    .whatsapp-btn{position:fixed;bottom:2rem;right:2rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform var(--tr);}
+    .whatsapp-btn:hover{transform:scale(1.12);}
+    .whatsapp-btn svg{width:28px;height:28px;fill:white;}
+
+    .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
+    .reveal.revealed{opacity:1;transform:translateY(0);}
+
+    @media(max-width:1100px){
+      .contact-section{grid-template-columns:1fr;gap:3rem;}
+      .quick-strip{grid-template-columns:1fr;gap:2.5rem;}
+      footer,.breadcrumb,.contact-section,.faq-section,.cta-section,.quick-strip{padding-left:4rem;padding-right:4rem;}
+      .page-hero-content{padding:0 4rem 3rem;}
+      .contact-form-wrap{padding:2.2rem;}
+    }
+    @media(max-width:900px){
+      nav{display:none;}
+      .hamburger{display:flex;}
+      .breadcrumb,.contact-section,.faq-section,.cta-section,.quick-strip{padding-left:2rem;padding-right:2rem;}
+      footer{padding:4rem 2rem 2rem;}
+      .footer-top{grid-template-columns:1fr;gap:2rem;}
+      .footer-bottom{flex-direction:column;gap:1rem;text-align:center;}
+      header{padding:0 1.5rem;}
+      .page-hero-content{padding:0 2rem 2.5rem;}
+      .form-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:580px){
+      .cta-btns{flex-direction:column;align-items:center;}
+      .contact-form-wrap{padding:1.8rem;}
+    }
+  </style>
 </head>
 <body>
 
-<header class="header">
-<div class="logo">ASR Studio</div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<div id="loader">
+  <div class="loader-logo">ASR</div>
+  <div class="loader-subtitle">Studio · Photography</div>
+  <div class="loader-bar"></div>
+</div>
+
+<a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<header id="mainHeader">
+  <a href="index.html" class="logo">ASR <span>Studio</span></a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="birthday.html">Birthday</a></li>
+      <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
+      <li><a href="pre-wedding.html">Pre Wedding</a></li>
+      <li><a href="wedding.html">Wedding</a></li>
+      <li><a href="films.html">Films</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </header>
 
-<section class="services" style="margin-top:120px">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="birthday.html">Birthday</a>
+  <a href="ring-ceremony.html">Ring Ceremony</a>
+  <a href="pre-wedding.html">Pre Wedding</a>
+  <a href="wedding.html">Wedding</a>
+  <a href="films.html">Films</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
 
-<h2>Contact Us</h2>
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">ASR Studio · Get In Touch</div>
+    <h1 class="page-title">Let's Create<br><em>Together</em></h1>
+    <p class="page-subtitle">We'd love to hear about your big day</p>
+  </div>
+</div>
 
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span><span>Contact Us</span>
+</div>
 
-<input type="text"
-name="name"
-placeholder="Your Name"
-required>
+<!-- QUICK CONTACT STRIP -->
+<div class="quick-strip">
+  <div class="quick-item reveal">
+    <div class="quick-item-icon">✆</div>
+    <div class="quick-item-title">Call Us</div>
+    <div class="quick-item-desc"><a href="tel:+919217568756">+91 92175 68756</a><br/>Mon – Sun, 9 AM – 8 PM</div>
+  </div>
+  <div class="quick-item reveal">
+    <div class="quick-item-icon">✉</div>
+    <div class="quick-item-title">Email Us</div>
+    <div class="quick-item-desc"><a href="mailto:rangchhayafaridabad@gmail.com">rangchhayafaridabad@gmail.com</a><br/>We reply within 24 hours</div>
+  </div>
+  <div class="quick-item reveal">
+    <div class="quick-item-icon">◉</div>
+    <div class="quick-item-title">Visit Us</div>
+    <div class="quick-item-desc">Delhi NCR<br/>Gurugram · Noida · Faridabad</div>
+  </div>
+</div>
 
-<input type="email"
-name="email"
-placeholder="Email"
-required>
+<!-- CONTACT GRID -->
+<div class="contact-section">
+  <div class="reveal">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Tell Us About<br><em>Your Celebration</em></h2>
+    <div class="gold-line"></div>
+    <p class="section-desc">Whether it's a birthday, ring ceremony, pre-wedding shoot, or your big wedding day — we'd love to be part of your story. Fill out the form, and our team will get back to you within 24 hours with package details and availability.</p>
 
-<input type="tel"
-name="phone"
-placeholder="Phone">
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="info-card-icon">✆</div>
+        <div>
+          <div class="info-card-label">Phone</div>
+          <div class="info-card-value"><a href="tel:+919217568756">+91 92175 68756</a></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">✉</div>
+        <div>
+          <div class="info-card-label">Email</div>
+          <div class="info-card-value"><a href="mailto:rangchhayafaridabad@gmail.com">rangchhayafaridabad@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">◉</div>
+        <div>
+          <div class="info-card-label">Studio Location</div>
+          <div class="info-card-value">Delhi NCR — Gurugram, Noida, Faridabad</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">◷</div>
+        <div>
+          <div class="info-card-label">Working Hours</div>
+          <div class="info-card-value">Monday – Sunday, 9:00 AM – 8:00 PM</div>
+        </div>
+      </div>
+    </div>
 
-<textarea
-name="message"
-placeholder="Your Message"
-rows="6"></textarea>
+    <div class="social-row">
+      <a href="#" aria-label="Instagram">In</a>
+      <a href="#" aria-label="Facebook">Fb</a>
+      <a href="#" aria-label="YouTube">Yt</a>
+      <a href="#" aria-label="Pinterest">Pt</a>
+    </div>
+  </div>
 
-<button type="submit">
-Send Message
-</button>
+  <div class="contact-form-wrap reveal">
+    <div class="form-header">
+      <div class="form-title">Send Us a Message</div>
+      <p class="form-sub">Share a few details and we'll get back to you with availability and pricing.</p>
+    </div>
 
-</form>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required />
+        </div>
+      </div>
 
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required />
+        </div>
+        <div class="field">
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Birthday Photography">Birthday Photography</option>
+            <option value="Ring Ceremony">Ring Ceremony</option>
+            <option value="Pre Wedding">Pre Wedding</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Wedding Films">Wedding Films</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field full">
+          <label for="eventdate">Preferred Event Date</label>
+          <input type="date" id="eventdate" name="event_date" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field full">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your event, location, and anything else we should know..." rows="5" required></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Send Message</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe class="map-frame" src="https://www.google.com/maps?q=Gurugram%2C+Haryana%2C+India&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ASR Studio Location"></iframe>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header reveal">
+    <div class="section-eyebrow">Good To Know</div>
+    <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-question">How far in advance should I book?<span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">We recommend booking at least 4–6 weeks in advance for weddings and pre-wedding shoots, and 1–2 weeks for birthdays and smaller celebrations, to ensure your preferred date and photographer.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Do you travel outside Delhi NCR?<span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Yes! We regularly shoot destination pre-weddings and weddings across India. Travel and accommodation charges apply separately based on location.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">How long until we receive our photos?<span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Delivery timelines depend on your package — typically 5 to 10 days for edited photos, with a sneak peek shared within 48 hours of your shoot.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Can we customize a package?<span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Every celebration is different, so we're happy to tailor coverage hours, number of photographers, albums, and films to suit your needs and budget.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">What's your payment policy?<span class="faq-icon">+</span></div>
+      <div class="faq-answer"><div class="faq-answer-inner">We require a 30% advance to confirm your booking, with the balance due on or before the event day. We accept UPI, bank transfer, and cash.</div></div>
+    </div>
+  </div>
 </section>
 
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title reveal">Prefer to Talk<br><em>Directly?</em></h2>
+  <p class="cta-desc reveal">Skip the form and reach out to us instantly on a call or WhatsApp — we're happy to answer your questions.</p>
+  <div class="cta-btns reveal">
+    <a href="tel:+919876543210" class="btn-primary">Call Now</a>
+    <a href="https://wa.me/919217568756" class="btn-outline">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">ASR Studio</div>
+      <p class="footer-about">Delhi NCR's trusted photography studio for birthdays, ring ceremonies, pre-wedding & wedding photography. Capturing your most precious memories with artistry.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">In</a>
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="YouTube">Yt</a>
+        <a href="#" aria-label="Pinterest">Pt</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Our Services</div>
+      <ul>
+        <li><a href="birthday.html">Birthday Photography</a></li>
+        <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
+        <li><a href="pre-wedding.html">Pre Wedding</a></li>
+        <li><a href="wedding.html">Wedding</a></li>
+        <li><a href="films.html">Wedding Films</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Quick Links</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Get In Touch</div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+91 9217568756</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>rangchhayafaridabad@gmail.com</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">◉</span><span>Delhi NCR — Gurugram, Noida, Faridabad</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 ASR Studio. All rights reserved.</span>  
+    <span class="footer-credits">Photography &amp; Films · Delhi NCR</span>
+  </div>
+</footer>
+<script>
+(function(){
+  'use strict';
+
+  window.addEventListener('load', function(){
+    setTimeout(function(){ document.getElementById('loader').classList.add('hidden'); }, 1500);
+  });
+
+  var cur = document.getElementById('cursor');
+  var fol = document.getElementById('cursorFollower');
+  var mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; });
+  (function loop(){
+    cur.style.cssText = 'left:'+mx+'px;top:'+my+'px;';
+    fx += (mx-fx)*0.12; fy += (my-fy)*0.12;
+    fol.style.cssText = 'left:'+fx+'px;top:'+fy+'px;';
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){ cur.style.width='18px'; cur.style.height='18px'; fol.style.width='56px'; fol.style.height='56px'; });
+    el.addEventListener('mouseleave',function(){ cur.style.width='10px'; cur.style.height='10px'; fol.style.width='36px'; fol.style.height='36px'; });
+  });
+
+  window.addEventListener('scroll', function(){ document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
+
+  var ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
+  ham.addEventListener('click', function(){ ham.classList.toggle('open'); mob.classList.toggle('open'); });
+  mob.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ ham.classList.remove('open'); mob.classList.remove('open'); }); });
+
+  var revEls = document.querySelectorAll('.reveal');
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('revealed'); });
+  }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
+  revEls.forEach(function(r){ revObs.observe(r); });
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-question').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* FORM submit handling */
+  var form = document.getElementById('contactForm');
+  var statusEl = document.getElementById('formStatus');
+  var submitBtn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusEl.className = 'form-status show';
+    statusEl.textContent = 'Sending your message...';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    var data = new FormData(form);
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(response){
+      if(response.ok){
+        statusEl.className = 'form-status show success';
+        statusEl.textContent = 'Thank you! Your message has been sent. We will get back to you within 24 hours.';
+        form.reset();
+      } else {
+        statusEl.className = 'form-status show error';
+        statusEl.textContent = 'Something went wrong. Please try again or contact us directly via phone or WhatsApp.';
+      }
+    }).catch(function(){
+      statusEl.className = 'form-status show error';
+      statusEl.textContent = 'Could not send message. Please check your connection or contact us directly via phone or WhatsApp.';
+    }).finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    });
+  });
+
+})();
+</script>
 </body>
 </html>

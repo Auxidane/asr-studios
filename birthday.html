@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
-  <title>Birthday Photography – ASR Studio Delhi NCR</title>
-  <meta name="description" content="Professional Birthday Photography in Delhi NCR by ASR Studio." />
+  <title>Pre Wedding Photography – ASR Studio Delhi NCR</title>
+  <meta name="description" content="Cinematic Pre Wedding Photography in Delhi NCR by ASR Studio. Romantic, dreamy, story-driven frames for every couple." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -24,11 +24,9 @@
     img{display:block;width:100%;height:100%;object-fit:cover;}
     ul{list-style:none;}
 
-    /* CURSOR */
     .cursor{position:fixed;top:0;left:0;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s;will-change:transform;}
     .cursor-follower{position:fixed;top:0;left:0;width:36px;height:36px;border:1px solid rgba(201,169,110,.5);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);will-change:transform;}
 
-    /* LOADER */
     #loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease;}
     #loader.hidden{opacity:0;visibility:hidden;pointer-events:none;}
     .loader-logo{font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);font-weight:300;color:var(--gold);letter-spacing:.3em;animation:loaderPulse 1.5s ease-in-out infinite;}
@@ -38,7 +36,6 @@
     @keyframes loaderPulse{0%,100%{opacity:1}50%{opacity:.4}}
     @keyframes loaderSlide{to{left:100%}}
 
-    /* HEADER */
     header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 4rem;height:80px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,height .3s;border-bottom:1px solid transparent;}
     header.scrolled{background:rgba(8,8,8,.95);backdrop-filter:blur(16px);border-color:rgba(201,169,110,.15);height:68px;}
     .logo{font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--gold);letter-spacing:.25em;text-transform:uppercase;}
@@ -61,22 +58,14 @@
     .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;font-weight:300;letter-spacing:.15em;color:var(--white2);transition:color var(--tr);}
     .mobile-menu a:hover{color:var(--gold);}
 
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{position:relative;height:100vh;min-height:580px;overflow:hidden;}
     .hero-slides{position:absolute;inset:0;}
     .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
     .hero-slide.active{opacity:1;}
-    /* Ken-burns only on active, GPU-composited */
-    .hero-slide .slide-img{
-      width:100%;height:100%;object-fit:cover;
-      filter:brightness(.48);
-      transform:scale(1.06);
-      will-change:transform;
-      transition:transform 7s ease, opacity 1s ease;
-    }
+    .hero-slide .slide-img{width:100%;height:100%;object-fit:cover;filter:brightness(.48);transform:scale(1.06);will-change:transform;transition:transform 7s ease, opacity 1s ease;}
     .hero-slide.active .slide-img{transform:scale(1);}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(8,8,8,.88) 0%,rgba(8,8,8,.28) 52%,rgba(8,8,8,.06) 100%);z-index:1;}
-
     .hero-content{position:absolute;inset:0;display:flex;align-items:center;z-index:3;padding:0 8rem;}
     .hero-text{max-width:560px;}
     .hero-eyebrow{font-size:.6rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem;opacity:0;animation:fadeUp .8s .2s forwards;}
@@ -89,35 +78,25 @@
     .hero-btns{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 1.15s forwards;}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     @keyframes growLine{to{width:50px}}
-
-    /* Thumbnails */
     .hero-thumbs{position:absolute;bottom:2.8rem;right:4rem;z-index:4;display:flex;gap:8px;}
     .hero-thumb{width:68px;height:48px;overflow:hidden;cursor:pointer;border:1.5px solid transparent;opacity:.5;transition:opacity .3s,border-color .3s,transform .3s;}
     .hero-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(.75);}
     .hero-thumb.active{border-color:var(--gold);opacity:1;transform:scale(1.07);}
     .hero-thumb:hover{opacity:.8;}
-
-    /* Counter */
     .hero-counter{position:absolute;bottom:3.2rem;left:8rem;z-index:4;display:flex;align-items:center;gap:.7rem;}
     .hero-counter-num{font-family:var(--font-display);font-size:1.4rem;font-weight:300;color:var(--gold);}
     .hero-counter-sep{color:rgba(201,169,110,.3);}
     .hero-counter-total{font-size:.6rem;letter-spacing:.35em;color:var(--gray);}
-
-    /* Progress */
     .hero-progress{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:0;z-index:5;will-change:width;}
-
-    /* Scroll hint */
     .scroll-hint{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:.4rem;}
     .scroll-hint-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(201,169,110,.55),transparent);animation:scrollPulse 2s ease-in-out infinite;}
     @keyframes scrollPulse{0%,100%{opacity:.25}50%{opacity:1}}
 
-    /* BREADCRUMB */
     .breadcrumb{padding:1.1rem 8rem;background:var(--dark2);border-bottom:1px solid rgba(201,169,110,.1);display:flex;align-items:center;gap:.6rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);}
     .breadcrumb a{color:var(--gray);transition:color var(--tr);}
     .breadcrumb a:hover{color:var(--gold);}
     .breadcrumb span{color:var(--gold);}
 
-    /* INTRO */
     .intro-section{padding:6rem 8rem;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
     .section-eyebrow{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
     .section-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
@@ -127,15 +106,11 @@
     .gold-line{width:50px;height:1px;background:var(--gold);margin:1.5rem 0;}
     .intro-image{height:420px;overflow:hidden;}
     .intro-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.82);}
-    .intro-image-bg{width:100%;height:100%;background:linear-gradient(160deg,#1a0d00,#2e1500);}
 
-    /* GALLERY */
     .gallery-section{padding:6rem 8rem;background:var(--black);}
     .gallery-header{text-align:center;margin-bottom:4rem;}
     .gallery-header .section-eyebrow{justify-content:center;}
     .gallery-header .section-eyebrow::before{display:none;}
-
-    /* Masonry — CSS columns, no JS needed */
     .masonry-grid{columns:3;column-gap:5px;}
     .masonry-item{break-inside:avoid;margin-bottom:5px;position:relative;overflow:hidden;cursor:pointer;display:block;}
     .masonry-item img{width:100%;display:block;filter:brightness(.82);transition:transform .65s ease,filter .35s ease;}
@@ -145,7 +120,6 @@
     .masonry-icon{width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.3rem;opacity:0;transform:scale(.65);transition:opacity .25s,transform .25s;}
     .masonry-item:hover .masonry-icon{opacity:1;transform:scale(1);}
 
-    /* LIGHTBOX */
     .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:9000;align-items:center;justify-content:center;}
     .lightbox.open{display:flex;}
     .lightbox-img{max-width:88vw;max-height:85vh;object-fit:contain;}
@@ -156,7 +130,6 @@
     .lightbox-prev:hover,.lightbox-next:hover{color:var(--gold);}
     .lightbox-counter{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gray);}
 
-    /* PACKAGES */
     .packages-section{padding:6rem 8rem;background:var(--dark2);}
     .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
     .pkg-card{padding:2.5rem;background:var(--dark3);border:1px solid rgba(201,169,110,.1);transition:border-color var(--tr),transform var(--tr);position:relative;overflow:hidden;}
@@ -173,9 +146,8 @@
     .btn-pkg{display:block;text-align:center;font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;padding:.9rem 1.5rem;border:1px solid rgba(201,169,110,.4);color:var(--gold);transition:all var(--tr);}
     .btn-pkg:hover,.pkg-card.featured .btn-pkg{background:var(--gold);color:var(--black);border-color:var(--gold);}
 
-    /* CTA */
     .cta-section{padding:6rem 8rem;text-align:center;background:var(--dark);position:relative;overflow:hidden;}
-    .cta-section::before{content:'BIRTHDAY';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:18vw;font-weight:300;color:rgba(201,169,110,.025);pointer-events:none;white-space:nowrap;}
+    .cta-section::before{content:'PRE WEDDING';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-display);font-size:12vw;font-weight:300;color:rgba(201,169,110,.025);pointer-events:none;white-space:nowrap;}
     .cta-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--white);margin-bottom:1.5rem;}
     .cta-title em{font-style:italic;color:var(--gold);}
     .cta-desc{font-size:.82rem;color:var(--gray);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;}
@@ -185,7 +157,6 @@
     .btn-outline{font-size:.68rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--white);border:1px solid rgba(248,244,239,.35);padding:1rem 2.5rem;transition:border-color var(--tr),color var(--tr);display:inline-block;}
     .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
 
-    /* FOOTER */
     footer{background:var(--dark);padding:5rem 8rem 2rem;border-top:1px solid rgba(201,169,110,.15);}
     .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
     .footer-logo{font-family:var(--font-display);font-size:2.2rem;font-weight:300;color:var(--gold);letter-spacing:.2em;margin-bottom:1.2rem;}
@@ -204,24 +175,13 @@
     .footer-copy{font-size:.65rem;color:var(--gray);}
     .footer-credits{font-size:.65rem;color:rgba(201,169,110,.4);font-family:var(--font-display);font-style:italic;}
 
-    /* WHATSAPP */
     .whatsapp-btn{position:fixed;bottom:2rem;right:2rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform var(--tr);}
     .whatsapp-btn:hover{transform:scale(1.12);}
     .whatsapp-btn svg{width:28px;height:28px;fill:white;}
 
-    /* REVEAL */
     .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
     .reveal.revealed{opacity:1;transform:translateY(0);}
 
-    /* placeholder colors */
-    .gp1{background:linear-gradient(160deg,#1a0d00,#2e1500);}
-    .gp2{background:linear-gradient(160deg,#2e1500,#1a0a00);}
-    .gp3{background:linear-gradient(160deg,#0d0808,#1a0d00);}
-    .gp4{background:linear-gradient(160deg,#1a0a00,#0d0808);}
-    .gp5{background:linear-gradient(160deg,#2e1a00,#1a0d00);}
-    .gp6{background:linear-gradient(160deg,#1a0500,#2e1000);}
-
-    /* RESPONSIVE */
     @media(max-width:1100px){
       .intro-section{grid-template-columns:1fr;gap:3rem;}
       .masonry-grid{columns:2;}
@@ -271,9 +231,9 @@
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="birthday.html" class="active">Birthday</a></li>
+      <li><a href="birthday.html">Birthday</a></li>
       <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
-      <li><a href="pre-wedding.html">Pre Wedding</a></li>
+      <li><a href="pre-wedding.html" class="active">Pre Wedding</a></li>
       <li><a href="wedding.html">Wedding</a></li>
       <li><a href="films.html">Films</a></li>
       <li><a href="about.html">About</a></li>
@@ -297,20 +257,19 @@
 <!-- HERO -->
 <div class="hero" id="heroSection">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active"><img class="slide-img" src="assets/images/birthday/0L4A0816.JPG" alt="Birthday 1" loading="eager"/></div>
-    <div class="hero-slide"><img class="slide-img" src="assets/images/birthday/0L4A0878.JPG" alt="Birthday 2" loading="lazy"/></div>
-    <div class="hero-slide"><img class="slide-img" src="assets/images/birthday/0L4A0968.JPG" alt="Birthday 3" loading="lazy"/></div>
-    <div class="hero-slide"><img class="slide-img" src="assets/images/birthday/0L4A0972.JPG" alt="Birthday 4" loading="lazy"/></div>
-    <div class="hero-slide"><img class="slide-img" src="assets/images/birthday/0L4A1015.JPG" alt="Birthday 5" loading="lazy"/></div>
+    <div class="hero-slide active"><img class="slide-img" src="https://images.unsplash.com/photo-1756376748107-12c98ec6b969?q=80&w=1600&auto=format&fit=crop" alt="Pre Wedding 1" loading="eager"/></div>
+    <div class="hero-slide"><img class="slide-img" src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=1600&auto=format&fit=crop" alt="Pre Wedding 2" loading="lazy"/></div>
+    <div class="hero-slide"><img class="slide-img" src="https://images.unsplash.com/photo-1754782540893-2122877f2975?q=80&w=1600&auto=format&fit=crop" alt="Pre Wedding 3" loading="lazy"/></div>
+    <div class="hero-slide"><img class="slide-img" src="https://images.unsplash.com/photo-1665960211002-0ecf92bed0ac?q=80&w=1600&auto=format&fit=crop" alt="Pre Wedding 4" loading="lazy"/></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <div class="hero-eyebrow">ASR Studio · Celebrations</div>
-      <h1 class="hero-title">Birthday<br><em>Photography</em></h1>
-      <p class="hero-subtitle">Every candle. Every smile. Every memory.</p>
+      <div class="hero-eyebrow">ASR Studio · Love Stories</div>
+      <h1 class="hero-title">Pre Wedding<br><em>Shoot</em></h1>
+      <p class="hero-subtitle">Cinematic Couple Photography</p>
       <div class="hero-line"></div>
-      <p class="hero-desc">Candid, colorful, joyful — we capture every birthday moment just as it happens across Delhi NCR.</p>
+      <p class="hero-desc">Every glance, every laugh, every quiet moment before the big day — captured like a film, told like a story.</p>
       <div class="hero-btns">
         <a href="contact.html" class="btn-primary">Book a Session</a>
         <a href="#gallery" class="btn-outline">View Gallery</a>
@@ -318,16 +277,15 @@
     </div>
   </div>
   <div class="hero-thumbs" id="heroThumbs">
-    <div class="hero-thumb active" data-thumb="0"><img src="assets/images/birthday/0L4A0816.JPG" alt="1" loading="lazy"/></div>
-    <div class="hero-thumb" data-thumb="1"><img src="assets/images/birthday/0L4A0878.JPG" alt="2" loading="lazy"/></div>
-    <div class="hero-thumb" data-thumb="2"><img src="assets/images/birthday/0L4A0968.JPG" alt="3" loading="lazy"/></div>
-    <div class="hero-thumb" data-thumb="3"><img src="assets/images/birthday/0L4A0972.JPG" alt="4" loading="lazy"/></div>
-    <div class="hero-thumb" data-thumb="4"><img src="assets/images/birthday/0L4A1015.JPG" alt="5" loading="lazy"/></div>
+    <div class="hero-thumb active" data-thumb="0"><img src="https://images.unsplash.com/photo-1756376748107-12c98ec6b969?q=80&w=300&auto=format&fit=crop" alt="1" loading="lazy"/></div>
+    <div class="hero-thumb" data-thumb="1"><img src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=300&auto=format&fit=crop" alt="2" loading="lazy"/></div>
+    <div class="hero-thumb" data-thumb="2"><img src="https://images.unsplash.com/photo-1754782540893-2122877f2975?q=80&w=300&auto=format&fit=crop" alt="3" loading="lazy"/></div>
+    <div class="hero-thumb" data-thumb="3"><img src="https://images.unsplash.com/photo-1665960211002-0ecf92bed0ac?q=80&w=300&auto=format&fit=crop" alt="4" loading="lazy"/></div>
   </div>
   <div class="hero-counter">
     <span class="hero-counter-num" id="heroCounterNum">01</span>
     <span class="hero-counter-sep">/</span>
-    <span class="hero-counter-total">05</span>
+    <span class="hero-counter-total">04</span>
   </div>
   <div class="hero-progress" id="heroProgress"></div>
   <div class="scroll-hint"><div class="scroll-hint-line"></div></div>
@@ -335,21 +293,20 @@
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
-  <a href="index.html">Home</a><span>/</span><span>Birthday Photography</span>
+  <a href="index.html">Home</a><span>/</span><span>Pre Wedding Photography</span>
 </div>
 
 <!-- INTRO -->
 <div class="intro-section">
   <div class="reveal">
-    <div class="section-eyebrow">Our Birthday Photography</div>
-    <h2 class="section-title">Celebrating Every<br><em>Precious Moment</em></h2>
+    <div class="section-eyebrow">Our Pre Wedding Photography</div>
+    <h2 class="section-title">A Love Story<br><em>Before The Vows</em></h2>
     <div class="gold-line"></div>
-    <p class="section-desc">Birthdays are milestones — first birthdays, sweet sixteens, milestone 50s. Each one deserves to be captured with energy, color, and emotion. Our photographers blend into the celebration, capturing every candid laugh, surprise reaction, and joyful tear without you ever feeling posed.</p>
-    <p class="section-desc">From intimate home celebrations to grand venue parties, ASR Studio brings a creative eye and professional touch to every birthday shoot in Delhi NCR.</p>
+    <p class="section-desc">Pre-wedding shoots are where your story begins on camera — playful, romantic, and entirely yours. From traditional sarees and sherwanis to candid laughs at golden hour, we scout the most cinematic locations across Delhi NCR to bring out the chemistry between you two.</p>
+    <p class="section-desc">Whether it's a quiet glance shared in a heritage haveli or a joyful twirl in a flower-filled garden, ASR Studio captures every emotion with a film-like, editorial touch true to Indian tradition.</p>
   </div>
   <div class="intro-image reveal">
-    <img src="assets/images/birthday/0L4A0973.JPG" alt="Birthday Photography" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
-    <div class="intro-image-bg gp1" style="display:none;"></div>
+    <img src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=1200&auto=format&fit=crop" alt="Pre Wedding Photography" loading="lazy"/>
   </div>
 </div>
 
@@ -357,25 +314,32 @@
 <section class="gallery-section" id="gallery">
   <div class="gallery-header reveal">
     <div class="section-eyebrow">Gallery</div>
-    <h2 class="section-title">Birthday <em>Memories</em></h2>
-    <p style="font-size:.82rem;color:var(--gray);max-width:480px;margin:.8rem auto 0;line-height:1.8;">15 beautiful moments from our birthday photography sessions across Delhi NCR.</p>
+    <h2 class="section-title">Pre Wedding <em>Moments</em></h2>
+    <p style="font-size:.82rem;color:var(--gray);max-width:480px;margin:.8rem auto 0;line-height:1.8;">Romantic frames in saree, sherwani, and lehenga from our pre-wedding photography sessions across Delhi NCR.</p>
   </div>
   <div class="masonry-grid" id="galleryGrid">
-    <div class="masonry-item" data-index="0"><img src="assets/images/birthday/0L4A0816.JPG" alt="Photo 1" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="1"><img src="assets/images/birthday/0L4A0818.JPG" alt="Photo 2" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="2"><img src="assets/images/birthday/0L4A0878.JPG" alt="Photo 3" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="3"><img src="assets/images/birthday/0L4A0885.JPG" alt="Photo 4" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="4"><img src="assets/images/birthday/0L4A0968.JPG" alt="Photo 5" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="5"><img src="assets/images/birthday/0L4A0969.JPG" alt="Photo 6" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="6"><img src="assets/images/birthday/0L4A0970.JPG" alt="Photo 7" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="7"><img src="assets/images/birthday/0L4A0971.JPG" alt="Photo 8" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="8"><img src="assets/images/birthday/0L4A0972.JPG" alt="Photo 9" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="9"><img src="assets/images/birthday/0L4A0973.JPG" alt="Photo 10" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="10"><img src="assets/images/birthday/0L4A0978.JPG" alt="Photo 11" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="11"><img src="assets/images/birthday/0L4A0986.JPG" alt="Photo 12" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="12"><img src="assets/images/birthday/0L4A1015.JPG" alt="Photo 13" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="13"><img src="assets/images/birthday/0L4A1088.JPG" alt="Photo 14" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
-    <div class="masonry-item" data-index="14"><img src="assets/images/birthday/0L4A1096.JPG" alt="Photo 15" loading="lazy" onerror="this.style.display='none'"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="0"><img src="https://images.unsplash.com/photo-1756376748107-12c98ec6b969?q=80&w=900&auto=format&fit=crop" alt="Pre Wedding Photo 1" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="1"><img src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=900&auto=format&fit=crop" alt="Pre Wedding Photo 2" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="2"><img src="https://images.unsplash.com/photo-1754782540893-2122877f2975?q=80&w=900&auto=format&fit=crop" alt="Pre Wedding Photo 3" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="3"><img src="https://images.unsplash.com/photo-1665960211002-0ecf92bed0ac?q=80&w=900&auto=format&fit=crop" alt="Pre Wedding Photo 4" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="4"><img src="https://images.unsplash.com/photo-1742891603547-950f510710d7?q=80&w=900&auto=format&fit=crop" alt="Pre Wedding Photo 5" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="5"><img src="https://images.unsplash.com/photo-1756376748107-12c98ec6b969?q=80&w=900&auto=format&fit=crop&sat=-15" alt="Pre Wedding Photo 6" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="6"><img src="https://images.unsplash.com/photo-1754782540893-2122877f2975?q=80&w=900&auto=format&fit=crop&sat=-15" alt="Pre Wedding Photo 7" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="7"><img src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=900&auto=format&fit=crop&sat=-10" alt="Pre Wedding Photo 8" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+    <div class="masonry-item" data-index="8"><img src="https://images.unsplash.com/photo-1742891603547-950f510710d7?q=80&w=900&auto=format&fit=crop&sat=-10" alt="Pre Wedding Photo 9" loading="lazy"/><div class="masonry-overlay"><div class="masonry-icon">+</div></div></div>
+  </div>
+</section>
+
+<!-- VIDEO TEASER -->
+<section style="position:relative;height:55vh;min-height:380px;overflow:hidden;">
+  <img src="https://images.unsplash.com/photo-1756190564669-215843660e93?q=80&w=1600&auto=format&fit=crop" alt="Pre Wedding Film" style="width:100%;height:100%;object-fit:cover;filter:brightness(.4);" loading="lazy"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.5) 0%,rgba(8,8,8,.75) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 2rem;">
+    <a href="films.html" style="width:84px;height:84px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:1.8rem;transition:transform .4s,background .4s;background:rgba(201,169,110,.08);">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" style="color:var(--gold);margin-left:3px;"><polygon points="6 3 20 12 6 21 6 3" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <div class="section-eyebrow" style="justify-content:center;"><span style="width:30px;height:1px;background:var(--gold);display:inline-block;"></span>Cinematic Films</div>
+    <h2 class="section-title" style="margin-bottom:.5rem;">Watch Their <em>Love Story</em></h2>
+    <p style="font-size:.8rem;color:var(--gray);max-width:420px;">See how we turn pre-wedding moments into cinematic short films. Visit our Films gallery for the full experience.</p>
   </div>
 </section>
 
@@ -385,40 +349,40 @@
   <button class="lightbox-prev" id="lbPrev">‹</button>
   <img class="lightbox-img" id="lbImg" src="" alt=""/>
   <button class="lightbox-next" id="lbNext">›</button>
-  <div class="lightbox-counter" id="lbCounter">1 / 15</div>
+  <div class="lightbox-counter" id="lbCounter">1 / 9</div>
 </div>
 
 <!-- PACKAGES -->
 <section class="packages-section">
   <div class="reveal">
     <div class="section-eyebrow">Packages</div>
-    <h2 class="section-title">Birthday Photography <em>Packages</em></h2>
+    <h2 class="section-title">Pre Wedding <em>Packages</em></h2>
   </div>
   <div class="packages-grid">
     <div class="pkg-card reveal">
       <div class="pkg-name">Classic</div>
-      <div class="pkg-price">₹8,000 <span>/ session</span></div>
+      <div class="pkg-price">₹15,000 <span>/ session</span></div>
       <div class="pkg-divider"></div>
       <ul class="pkg-features">
-        <li>2 Hours Coverage</li><li>1 Photographer</li><li>100+ Edited Photos</li><li>Online Gallery Delivery</li><li>7-Day Delivery</li>
+        <li>Half Day Coverage</li><li>1 Location</li><li>1 Photographer</li><li>100+ Edited Photos</li><li>Online Gallery Delivery</li>
       </ul>
       <a href="contact.html" class="btn-pkg">Book Now</a>
     </div>
     <div class="pkg-card featured reveal">
       <div class="pkg-name">Premium</div>
-      <div class="pkg-price">₹15,000 <span>/ session</span></div>
+      <div class="pkg-price">₹28,000 <span>/ session</span></div>
       <div class="pkg-divider"></div>
       <ul class="pkg-features">
-        <li>4 Hours Coverage</li><li>2 Photographers</li><li>250+ Edited Photos</li><li>1 Highlight Reel Video</li><li>Printed Album (20 pages)</li><li>5-Day Delivery</li>
+        <li>Full Day Coverage</li><li>2 Locations</li><li>2 Photographers</li><li>250+ Edited Photos</li><li>1 Cinematic Reel</li><li>Printed Album (20 pages)</li>
       </ul>
       <a href="contact.html" class="btn-pkg">Book Now</a>
     </div>
     <div class="pkg-card reveal">
       <div class="pkg-name">Luxury</div>
-      <div class="pkg-price">₹25,000 <span>/ session</span></div>
+      <div class="pkg-price">₹45,000 <span>/ session</span></div>
       <div class="pkg-divider"></div>
       <ul class="pkg-features">
-        <li>Full Day Coverage</li><li>2 Photographers + Videographer</li><li>500+ Edited Photos</li><li>Full Cinematic Video</li><li>Premium Printed Album</li><li>Same-Week Delivery</li>
+        <li>2 Day Outdoor Shoot</li><li>3 Locations + Outfit Changes</li><li>2 Photographers + Videographer</li><li>500+ Edited Photos</li><li>Full Cinematic Film</li><li>Premium Printed Album</li>
       </ul>
       <a href="contact.html" class="btn-pkg">Book Now</a>
     </div>
@@ -427,11 +391,11 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2 class="cta-title reveal">Book Your<br><em>Birthday Session</em></h2>
-  <p class="cta-desc reveal">Let's make your birthday unforgettable. Contact ASR Studio today and let us capture every joyful moment.</p>
+  <h2 class="cta-title reveal">Begin Your<br><em>Love Story</em></h2>
+  <p class="cta-desc reveal">Let's create cinematic memories before your big day. Contact ASR Studio today to plan your pre-wedding shoot.</p>
   <div class="cta-btns reveal">
     <a href="contact.html" class="btn-primary">Book a Session</a>
-    <a href="https://wa.me/919876543210" class="btn-outline">WhatsApp Us</a>
+    <a href="https://wa.me/919217568756" class="btn-outline">WhatsApp Us</a>
   </div>
 </section>
 
@@ -440,32 +404,43 @@
   <div class="footer-top">
     <div>
       <div class="footer-logo">ASR Studio</div>
-      <p class="footer-about">Delhi NCR's trusted photography studio for birthdays, ring ceremonies, pre-wedding & wedding photography.</p>
+      <p class="footer-about">Delhi NCR's trusted photography studio for birthdays, ring ceremonies, pre-wedding & wedding photography. Capturing your most precious memories with artistry.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram">In</a><a href="#" aria-label="Facebook">Fb</a><a href="#" aria-label="YouTube">Yt</a><a href="#" aria-label="Pinterest">Pt</a>
+        <a href="#" aria-label="Instagram">In</a>
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="YouTube">Yt</a>
+        <a href="#" aria-label="Pinterest">Pt</a>
       </div>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Our Services</div>
       <ul>
-        <li><a href="birthday.html">Birthday Photography</a></li><li><a href="ring-ceremony.html">Ring Ceremony</a></li>
-        <li><a href="pre-wedding.html">Pre Wedding</a></li><li><a href="wedding.html">Wedding</a></li><li><a href="films.html">Wedding Films</a></li>
+        <li><a href="birthday.html">Birthday Photography</a></li>
+        <li><a href="ring-ceremony.html">Ring Ceremony</a></li>
+        <li><a href="pre-wedding.html">Pre Wedding</a></li>
+        <li><a href="wedding.html">Wedding</a></li>
+        <li><a href="films.html">Wedding Films</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Quick Links</div>
-      <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Get In Touch</div>
-      <div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+91 98765 43210</span></div>
-      <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>asrstudio@gmail.com</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✆</span><span>+91 9217568756</span></div>
+      <div class="footer-contact-item"><span class="footer-contact-icon">✉</span><span>rangchhayafaridabad@gmail.com</span></div>
       <div class="footer-contact-item"><span class="footer-contact-icon">◉</span><span>Delhi NCR — Gurugram, Noida, Faridabad</span></div>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="footer-copy">© 2025 ASR Studio. All rights reserved.</span>
-    <span class="footer-credits">Photography & Films · Delhi NCR</span>
+    <span class="footer-copy">© 2026 ASR Studio. All rights reserved.</span>  
+    <span class="footer-credits">Photography &amp; Films · Delhi NCR</span>
   </div>
 </footer>
 
@@ -473,12 +448,10 @@
 (function(){
   'use strict';
 
-  /* ---- LOADER ---- */
   window.addEventListener('load', function(){
     setTimeout(function(){ document.getElementById('loader').classList.add('hidden'); }, 1500);
   });
 
-  /* ---- CURSOR (RAF-based, no transition lag) ---- */
   var cur = document.getElementById('cursor');
   var fol = document.getElementById('cursorFollower');
   var mx=0,my=0,fx=0,fy=0;
@@ -494,22 +467,18 @@
     el.addEventListener('mouseleave',function(){ cur.style.width='10px'; cur.style.height='10px'; fol.style.width='36px'; fol.style.height='36px'; });
   });
 
-  /* ---- HEADER ---- */
   window.addEventListener('scroll', function(){ document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 60); }, {passive:true});
 
-  /* ---- HAMBURGER ---- */
   var ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
   ham.addEventListener('click', function(){ ham.classList.toggle('open'); mob.classList.toggle('open'); });
   mob.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ ham.classList.remove('open'); mob.classList.remove('open'); }); });
 
-  /* ---- REVEAL ---- */
   var revEls = document.querySelectorAll('.reveal');
   var revObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('revealed'); });
   }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
   revEls.forEach(function(r){ revObs.observe(r); });
 
-  /* ---- HERO SLIDESHOW ---- */
   var slides   = document.querySelectorAll('.hero-slide');
   var thumbs   = document.querySelectorAll('.hero-thumb');
   var cntEl    = document.getElementById('heroCounterNum');
@@ -517,12 +486,10 @@
   var cur_s    = 0;
   var progAnim = null;
   var autoTimer= null;
-  var DURATION = 5000; // ms per slide
-
-  function stopProg(){ if(progAnim) cancelAnimationFrame(progAnim); progEl.style.transition='none'; progEl.style.width='0'; }
+  var DURATION = 5000;
 
   function startProg(){
-    stopProg();
+    if(progAnim) cancelAnimationFrame(progAnim);
     var start = null;
     progEl.style.transition='none';
     progEl.style.width='0';
@@ -530,7 +497,6 @@
     function step(ts){
       if(!start) start=ts;
       var pct = Math.min((ts-start)/DURATION*100, 100);
-      progEl.style.transition='none';
       progEl.style.width = pct+'%';
       if(pct < 100) progAnim = requestAnimationFrame(step);
     }
@@ -561,14 +527,12 @@
   goTo(0);
   startAuto();
 
-  /* ---- GALLERY LIGHTBOX ---- */
   var items  = document.querySelectorAll('.masonry-item');
   var lb     = document.getElementById('lightbox');
   var lbImg  = document.getElementById('lbImg');
   var lbCnt  = document.getElementById('lbCounter');
   var curLb  = 0;
 
-  // Build src array once
   var srcs = [];
   items.forEach(function(item){
     var img = item.querySelector('img');
